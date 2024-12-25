@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suraj Nag | Data Scientist | Data Engineer</title>
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="467bdb93-dc91-46fe-a567-1396b2030be9"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+        :root {
+            --background: #ffffff;
+            --text: #2d2d2d;
+            --subtle: #666666;
+            --accent: #e94c89;
+            --accent-light: #fdf2f7;
+            --nav-height: 80px;
+            --border: #eaeaea;
+        }
+
+        [data-theme="dark"] {
+            --background: #1a1a1a;
+            --text: #ffffff;
+            --subtle: #a0a0a0;
+            --accent-light: #2d1f24;
+            --border: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            background: var(--background);
+            color: var(--text);
+            font-family: 'Inter', -apple-system, sans-serif;
+            line-height: 1.7;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav {
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 4rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1rem;
+            position: relative;
+            padding: 0.5rem 0;
+            cursor: pointer;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .dark-mode-toggle {
+            background: var(--border);
+            border-radius: 1rem;
+            width: 3rem;
+            height: 1.5rem;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .dark-mode-toggle::before {
+            content: '';
+            position: absolute;
+            left: 0.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1.1rem;
+            height: 1.1rem;
+            background-color: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] .dark-mode-toggle {
+            background: #666666;
+        }
+
+        [data-theme="dark"] .dark-mode-toggle::before {
+            left: calc(100% - 1.3rem);
+            background-color: #ffffff;
+        }
+
+        /* Moon and sun icons */
+        .dark-mode-toggle::after {
+            content: '🌚';
+            position: absolute;
+            right: 0.4rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8rem;
+            transition: opacity 0.3s ease;
+            color: #1a1a1a; /* Dark black color for the moon */
+
+        }
+
+        [data-theme="dark"] .dark-mode-toggle::after {
+            content: '🌞';
+            left: 0.4rem;
+            right: auto;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 4rem;
+            background: linear-gradient(45deg, var(--text), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .profile-section img {
+            width: 100%;
+            border-radius: 1rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .profile-section .title {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .social-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        .main-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .main-content p {
+            margin-bottom: 2rem;
+            color: var(--subtle);
+            font-size: 1.05rem;
+        }
+
+        .credits {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: var(--accent-light);
+            border-radius: 1rem;
+        }
+
+        .tools-list {
+            color: var(--subtle);
+            margin-top: 1rem;
+            list-style: none;
+        }
+
+        .tools-list li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tools-list li::before {
+            content: '•';
+            color: var(--accent);
+        }
+
+        .big-text {
+            font-size: 8rem;
+            line-height: 1;
+            font-weight: 900;
+            margin: 0;
+            padding: 0;
+        }
+
+        .big-text.pink {
+            color: #e94c89;
+        }
+
+        .big-text.black {
+            color: var(--text);
+        }
+
+        .home-container {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            padding: 4rem 0;
+        }
+
+        .intro-text {
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin: 4rem 0;
+            max-width: 800px;
+        }
+
+        .wave-emoji {
+            font-size: 2.5rem;
+        }
+
+        .get-in-touch {
+            color: var(--accent);
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .get-in-touch:hover {
+            opacity: 0.8;
+        }
+
+        .get-in-touch::after {
+            content: '→';
+            font-family: 'Inter', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .big-text {
+                font-size: 4rem;
+            }
+
+            .intro-text {
+                font-size: 1.8rem;
+                margin: 2rem 0;
+            }
+        }
+
+        .blog-post h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .blog-post {
+            margin-bottom: 3rem;  /* Space between blog posts */
+        }
+
+        .blog-date {
+            color: var(--subtle);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-post {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .blog-post:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-post::after {
+            content: '→';
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--accent);
+            transition: right 0.3s ease;
+        }
+
+        .blog-post:hover::after {
+            right: 20px;
+        }
+
+        .blog-meta {
+            margin-right: 2rem;
+        }
+
+        .blog-post:nth-child(6n+1) {
+            background: #fdf2f7;
+        }
+        
+        .blog-post:nth-child(6n+2) {
+            background: #f0f9ff;
+        }
+        
+        .blog-post:nth-child(6n+3) {
+            background: #f7fee7;
+        }
+        
+        .blog-post:nth-child(6n+4) {
+            background: #fff7ed;
+        }
+        
+        .blog-post:nth-child(6n+5) {
+            background: #fdf4ff;
+        }
+        
+        .blog-post:nth-child(6n) {
+            background: #f1f5f9;
+        }
+
+        [data-theme="dark"] .blog-post:nth-child(6n+1) {
+            background: #311d24;
+        }
+        
+        [data-theme="dark"] .blog-post:nth-child(6n+2) {
+            background: #1e2937;
+        }
+        
+        [data-theme="dark"] .blog-post:nth-child(6n+3) {
+            background: #1c2922;
+        }
+        
+        [data-theme="dark"] .blog-post:nth-child(6n+4) {
+            background: #2d1d12;
+        }
+        
+        [data-theme="dark"] .blog-post:nth-child(6n+5) {
+            background: #2d1b2d;
+        }
+        
+        [data-theme="dark"] .blog-post:nth-child(6n) {
+            background: #1f2937;
+        }        .blog-post {
+            margin-bottom: 3rem;  /* Space between blog posts */
+            padding: 2rem;
+            border-radius: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .blog-post:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-post:nth-child(6n+1) {
+            background: #fdf2f7;  /* Light pink */
+        }
+        
+        .blog-post:nth-child(6n+2) {
+            background: #f0f9ff;  /* Light blue */
+        }
+        
+        .blog-post:nth-child(6n+3) {
+            background: #f7fee7;  /* Light green */
+        }
+        
+        .blog-post:nth-child(6n+4) {
+            background: #fff7ed;  /* Light orange */
+        }
+        
+        .blog-post:nth-child(6n+5) {
+            background: #fdf4ff;  /* Light purple */
+        }
+        
+        .blog-post:nth-child(6n) {
+            background: #f1f5f9;  /* Light gray */
+        }
+
+        [data-theme="dark"] .blog-post:nth-child(6n+1) {
+            background: #311d24;  /* Dark pink */
+        }
+        
+        [data-theme="dark"] .blog-post:nth-child(6n+2) {
+            background: #1e2937;  /* Dark blue */
+        }
+        
+        [data-theme="dark"] .blog-post:nth-child(6n+3) {
+            background: #1c2922;  /* Dark green */
+        }
+        
+        [data-theme="dark"] .blog-post:nth-child(6n+4) {
+            background: #2d1d12;  /* Dark orange */
+        }
+        
+        [data-theme="dark"] .blog-post:nth-child(6n+5) {
+            background: #2d1b2d;  /* Dark purple */
+        }
+        
+        [data-theme="dark"] .blog-post:nth-child(6n) {
+            background: #1f2937;  /* Dark gray */
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--accent-light);
+            padding: 1.5rem;
+            border-radius: 1rem;
+        }
+
+        .project-card h3 {
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .experience-item {
+            margin-bottom: 2rem;
+        }
+
+        .experience-item h3 {
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-date {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 0 1.5rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+                margin-bottom: 3rem;
+            }
+
+            .content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .profile-section img {
+                max-width: 280px;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-links">
+            <a onclick="showSection('home')" class="active">Home</a>
+            <a onclick="showSection('about')">About</a>
+            <a onclick="showSection('blog')">Blog</a>
+            <a onclick="showSection('projects')">Projects</a>
+            <a onclick="showSection('experience')">Experience</a>
+        </div>
+        <div class="dark-mode-toggle" onclick="toggleTheme()"></div>
+    </nav>
+
+    <div id="home" class="content-section active">
+        <div class="home-container">
+            <div class="big-text pink">Blog.</div>
+            <div class="big-text black">Showcase.</div>
+            <div class="big-text black">Portfolio.</div>
+            
+            <div class="intro-text">
+                Hello! I'm Suraj <span class="wave-emoji">👋</span>
+                <p style="font-size: 1.2rem; margin-top: 1rem; color: var(--subtle);">
+                    I am a data engineer focused on building efficient data pipelines and analytics solutions.
+                </p>
+                <a href="https://www.linkedin.com/in/suraj11nag/" class="get-in-touch">Get in touch</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="about" class="content-section">
+        <h1>About</h1>
+        <div class="content">
+            <div class="profile-section">
+                <img src="assets/Suraj_Nag_Profile.jpg" alt="Suraj Nag" />
+                <h2>Suraj Nag</h2>
+                <div class="title">Data Engineer & Data Scientist</div>
+                <div class="social-links">
+                    <a href="mailto:suraj11nag@gmail.com" title="Email">📧</a>
+                    <a href="https://github.com" title="GitHub">💻</a>
+                    <a href="https://linkedin.com" title="LinkedIn">🔗</a>
+                    <a href="https://twitter.com" title="Twitter">🐦</a>
+                </div>
+            </div>
+            <div class="main-content">
+                <h2>Hello, I'm Suraj</h2>
+                <p>Welcome to my digital space. This site serves as a portfolio of my work in <span class="highlight">data engineering</span>, <span class="highlight">data science</span> and <span class="highlight">machine learning</span>, as well as a platform to share insights and experiences from my journey in tech.</p>
+                <p>I'm a data engineer and machine learning passionate about building data pipelines and automation systems and exploring the frontiers of AI technology. With expertise in both data engineering and machine learning, I bridge the gap between robust data infrastructure and intelligent systems.</p>
+                <div class="credits">
+                    <h2>Tech Stack</h2>
+                    <p>Built with modern data engineering tools and frameworks:</p>
+                    <ul class="tools-list">
+                        <li>Data Engineering: Airflow, Airbyte, dbt, Hevo, Docker, CI/CD</li>
+                        <li>Databases & Warehouses: PostgreSQL, MongoDB, Redshift, Snowflake, BigQuery</li>
+                        <li>Cloud & Infrastructure: AWS (S3, Lambda, EC2), Databricks, Spark</li>
+                        <li>Analytics & BI: Looker, Metabase, Tableau, Power BI, Google Data Studio</li>
+                        <li>Programming & ML: Python, SQL, Excel, TensorFlow, Scikit-Learn, Pandas, NumPy</li>
+                        <li>Analytics Tools: GA 4, Amplitude, Mixpanel, Clevertap</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="blog" class="content-section">
+        <h1>Blog</h1>
+        <div class="blog-post">
+            <h3><a href="https://medium.com/@suraj11nag" style="text-decoration: none; color: inherit;">The Data Engineering Lifecycle</a></h3>
+            <div class="blog-date">December 21, 2024</div>
+            <p>Welcome to the wild world of data engineering, where the goal is simple: take a bunch of raw, unpolished data and transform it into...</p>
+        </div>
+        <div class="blog-post">
+            <h3><a href="https://medium.com/@suraj11nag" style="text-decoration: none; color: inherit;">The Fundamentals: What Is Data Modeling?</a></h3>
+            <div class="blog-date">September 9, 2024</div>
+            <p>Six months ago, I started working at a UK-based startup that sells postcards and greeting cards online. Over this time, I've had the chance...</p>
+        </div>
+        <div class="blog-post">
+            <h3><a href="https://medium.com/@suraj11nag" style="text-decoration: none; color: inherit;">Step-by-Step Guide to Building a Data Pipeline with AWS</a></h3>
+            <div class="blog-date">September 1, 2024</div>
+            <p>Four or five moments! Four or five moments! That's all it takes to be a Data Engineer. People think you wake up a Data Engineer, brush your...</p>
+        </div>
+        <div class="blog-post">
+            <h3><a href="https://medium.com/@suraj11nag" style="text-decoration: none; color: inherit;">6 months of Doing — Data Engineering</a></h3>
+            <div class="blog-date">August 30, 2024</div>
+            <p>Six months ago, I joined a UK-based startup that sells postcards and greeting cards on the internet.</p>
+        </div>
+        <div class="blog-post">
+            <h3><a href="https://medium.com/@suraj11nag" style="text-decoration: none; color: inherit;">Fundamental of Data Engineering</a></h3>
+            <div class="blog-date">May 31, 2024</div>
+            <p>Data & Data Engineering has been an integral part of human identity since the time of the ancient Romans.</p>
+        </div>
+        <div class="blog-post">
+            <h3><a href="https://medium.com/@suraj11nag" style="text-decoration: none; color: inherit;">What is Metadata?</a></h3>
+            <div class="blog-date">December 29, 2023</div>
+            <p>It all starts with a question: What should I order for lunch today?</p>
+        </div>
+        <div class="blog-post">
+            <h3><a href="https://medium.com/@suraj11nag" style="text-decoration: none; color: inherit;">12 months of Learning — Machine Learning</a></h3>
+            <div class="blog-date">July 2, 2023</div>
+            <p>So it's been about 12 months since I started self-studying machine learning. So I just want to give an update on my progress.</p>
+        </div>
+        <div class="blog-post">
+            <h3><a href="https://medium.com/@suraj11nag" style="text-decoration: none; color: inherit;">Why Data Scientists are Graph-ically Obsessed</a></h3>
+            <div class="blog-date">February 26, 2023</div>
+            <p>If you've ever looked over a data scientist's shoulder at work, you might have seen this graphs on their computer.</p>
+        </div>
+        <div class="blog-post">
+            <h3><a href="https://medium.com/@suraj11nag" style="text-decoration: none; color: inherit;">5 Tips for landing a Data Science job</a></h3>
+            <div class="blog-date">January 30, 2023</div>
+            <p>So, you want to get into data science?</p>
+        </div>
+        <div class="blog-post">
+            <h3><a href="https://medium.com/@suraj11nag" style="text-decoration: none; color: inherit;">Why you NEED maths for Machine Learning</a></h3>
+            <div class="blog-date">December 26, 2022</div>
+            <p>I'm going to be mentioning these mathematical topics in the order I think that it should be learned starting with mathematical functions...</p>
+        </div>
+        <div class="blog-post">
+            <h3><a href="https://medium.com/@suraj11nag" style="text-decoration: none; color: inherit;">What Should Be Your First Machine Learning Model?</a></h3>
+            <div class="blog-date">November 28, 2022</div>
+            <p>If you're just getting started in machine learning, you might be wondering what your first model should be. In this article, we'll discuss...</p>
+        </div>
+        <div class="blog-post">
+            <h3><a href="https://medium.com/@suraj11nag" style="text-decoration: none; color: inherit;">8 Ways Machine Learning Changed My Life</a></h3>
+            <div class="blog-date">October 9, 2022</div>
+            <p>Explained with Data Science</p>
+        </div>
+    </div>
+
+    <div id="projects" class="content-section">
+        <h1>Projects</h1>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>Machine Learning Models</h3>
+                <p>Developed machine learning models for predicting heart disease based on medical attributes using Python and scikit-learn.</p>
+            </div>
+            <div class="project-card">
+                <h3>Deep Learning Image Classifier</h3>
+                <p>Created an end-to-end multi-class image classifier deep learning model using TensorFlow 2.0 and TensorFlow Hub.</p>
+            </div>
+            <div class="project-card">
+                <h3>Forex Data Pipeline</h3>
+                <p>Created a forex data pipeline to facilitate efficient data management and analysis for financial insights.</p>
+            </div>
+            <div class="project-card">
+                <h3>Data Visualization Project</h3>
+                <p>Utilized Kaggle datasets to build a local database, perform EDA using SQL, and build data visualizations using Tableau.</p>
+            </div>
+            <div class="project-card">
+                <h3>AI Chatbot</h3>
+                <p>Developed a domain-specific chatbot using LLMs and Langchain with external sources of computation and data.</p>
+            </div>
+            <div class="project-card">
+                <h3>Web Applications</h3>
+                <p>Built several ML-powered web apps including a Spam Detector, Book Recommender, and NLP Business Assistance app using Streamlit.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="experience" class="content-section">
+        <h1>Experience</h1>
+        <div class="experience-item">
+            <h3>Data Engineer - TouchNote</h3>
+            <div class="experience-date">02/2024 - Current</div>
+            <p>• Managed data pipelines using Airbyte and Hevo to migrate and sync data from PostgreSQL RDS to Amazon Redshift<br>
+            • Developed and maintained 20+ Airflow DAGs to orchestrate data workflows<br>
+            • Implemented dbt from scratch to build key data marts and automate testing<br>
+            • Built and optimized LookML code for data models and dashboards</p>
+        </div>
+        <div class="experience-item">
+            <h3>Data Engineer - Open Financial Technologies</h3>
+            <div class="experience-date">12/2022 - 02/2024</div>
+            <p>• Automated reports and alerts using Looker & Metabase<br>
+            • Optimized SQL queries, reducing runtime by 90%<br>
+            • Migrated large-scale datasets to BigQuery<br>
+            • Developed Python scripts for data transformation and automation</p>
+        </div>
+        <div class="experience-item">
+            <h3>Data Analyst - Mojocare</h3>
+            <div class="experience-date">09/2021 - 12/2022</div>
+            <p>• Automated tasks for daily reports and data extraction<br>
+            • Designed event architecture for Mixpanel, Clevertap, and GA 4<br>
+            • Implemented data pipelines using Hevo<br>
+            • Automated data reconciliation process, increasing efficiency by 90%</p>
+        </div>
+        <div class="experience-item">
+            <h3>Data Analyst - Eloelo</h3>
+            <div class="experience-date">12/2020 - 09/2021</div>
+            <p>• Developed KPIs for mobile application with 500K users<br>
+            • Built data and reporting infrastructure from scratch<br>
+            • Utilized Google Analytics and Facebook Analytics for funnel analysis</p>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.textContent.toLowerCase() === sectionId) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+            }
+        }
+    </script>
+</body>
+</html>
