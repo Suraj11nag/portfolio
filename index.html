@@ -126,7 +126,6 @@ nav {
 }
 
 .nav-links a:hover {
-    text-shadow: 0 0 8px var(--accent);
     color: var(--accent);
 }
 
@@ -487,150 +486,84 @@ h1 {
 }
 
 /* Blog styles */
-.blog-post {
-    margin-bottom: 3rem;
-    padding: 2rem;
-    border-radius: 1rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid var(--border);
+/* Blog styles */
+.search-container {
     position: relative;
-    overflow: hidden;
-    background: rgba(10, 10, 10, 0.7);
-    backdrop-filter: blur(10px);
-    box-shadow: var(--card-shadow);
+    margin-bottom: 4rem;
 }
 
-.blog-post:hover {
-    background: rgba(15, 15, 15, 0.9);
-    transform: translateY(-5px);
-    border-color: var(--accent);
-    box-shadow: var(--neon-shadow);
-}
-
-.blog-post h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+.search-input {
+    width: 100%;
+    padding: 1rem;
+    background: #141414;
+    border: none;
+    border-radius: 8px;
     color: var(--text);
-    position: relative;
-    z-index: 2;
+    font-size: 1rem;
+    font-family: inherit;
 }
 
-.blog-post h3 a {
+.search-input::placeholder {
+    color: #666;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.blog-post {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    align-items: start;
+}
+
+.post-date {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.post-content h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.post-content h2 a {
     color: var(--text);
     text-decoration: none;
-    background: linear-gradient(90deg, var(--text), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: all 0.3s ease;
 }
 
-.blog-post h3 a:hover {
-    text-shadow: var(--neon-shadow);
+.post-content h2 a:hover {
+    text-decoration: underline;
 }
 
-.blog-post .blog-date {
-    color: var(--accent);
-    font-size: 0.9rem;
+.post-tags {
+    display: flex;
+    gap: 0.75rem;
     margin-bottom: 1rem;
-    font-weight: 500;
-    position: relative;
-    z-index: 2;
 }
 
-.blog-post p {
-    color: var(--accent-dark);
-    position: relative;
-    z-index: 2;
+.tag {
+    color: var(--accent);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.post-description {
+    color: var(--text-secondary);
+    font-size: 1rem;
     line-height: 1.6;
 }
 
-.blog-post::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, 
-        transparent, 
-        rgba(100, 255, 218, 0.1), 
-        transparent);
-    transform: translateX(-100%);
-    transition: 0.5s;
-}
-
-.blog-post:hover::before {
-    transform: translateX(100%);
-}
-
-.blog-post::after {
-    content: '→';
-    position: absolute;
-    right: -30px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.5rem;
-    color: var(--accent);
-    transition: all 0.3s ease;
-    text-shadow: var(--neon-shadow);
-    opacity: 0;
-}
-
-.blog-post:hover::after {
-    right: 20px;
-    opacity: 1;
-}
-
-.blog-post:hover {
-    transform: translateY(-5px) scale(1.02);
-    border-color: var(--accent);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-}
-
-.blog-post::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    transform: translateX(-100%);
-    transition: 0.5s;
-}
-
-.blog-post:hover::before {
-    transform: translateX(100%);
-}
-
-.blog-post:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.blog-post::after {
-    content: '→';
-    position: absolute;
-    right: -30px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.5rem;
-    color: var(--accent);
-    transition: right 0.3s ease;
-}
-
-.blog-post:hover::after {
-    right: 20px;
-}
-
-.blog-post h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--text);
-}
-
-.blog-date {
-    color: var(--subtle);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+@media (max-width: 768px) {
+    .blog-post {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
 }
 
 /* Project styles */
@@ -972,71 +905,181 @@ h1 {
     </div>
 
     <div id="blog" class="content-section">
-        <h1>Blog</h1>
-        <div class="blog-post">
-            <h3><a href="https://medium.com/@suraj11nag/step-by-step-guide-to-setting-up-apache-spark-on-databricks-1546541c72c5?sk=84624692d55adb6e9195d5ad1e1070f5" style="text-decoration: none; color: inherit;">Step-by-Step Guide to Setting Up Apache Spark on Databricks</a></h3>
-            <div class="blog-date">December 31, 2024</div>
-            <p>What’s more powerful than adamantium? Apache Spark.</p>
+        <h1>All Posts</h1>
+        
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Search articles">
         </div>
-        <div class="blog-post">
-            <h3><a href="https://medium.com/@suraj11nag/the-data-engineering-lifecycle-1c1eddeeac2c?sk=cfab076c78e96ec83ac884186e96fed0" style="text-decoration: none; color: inherit;">The Data Engineering Lifecycle</a></h3>
-            <div class="blog-date">December 21, 2024</div>
-            <p>Welcome to the wild world of data engineering, where the goal is simple: take a bunch of raw, unpolished data and transform it into...</p>
+    
+        <div class="blog-posts">
+            <!-- Blog Posts -->
+<article class="blog-post">
+    <div class="post-date">December 21, 2024</div>
+    <div class="post-content">
+        <h2>
+            <a href="https://medium.com/@suraj11nag/the-data-engineering-lifecycle-1c1eddeeac2c">The Data Engineering Lifecycle</a>
+        </h2>
+        <div class="post-tags">
+            <span class="tag">DATA ENGINEERING</span>
         </div>
-        <div class="blog-post">
-            <h3><a href="https://medium.com/@suraj11nag/the-fundamentals-what-is-data-modeling-f140f5a7367c?sk=24986075e6e96ccdb1523a2c85b2a597" style="text-decoration: none; color: inherit;">The Fundamentals: What Is Data Modeling?</a></h3>
-            <div class="blog-date">September 9, 2024</div>
-            <p>Six months ago, I started working at a UK-based startup that sells postcards and greeting cards online. Over this time, I've had the chance...</p>
+        <p class="post-description">Welcome to the wild world of data engineering, where the goal is simple: take a bunch of raw, unpolished data and transform it into...</p>
+    </div>
+</article>
+
+<article class="blog-post">
+    <div class="post-date">September 9, 2024</div>
+    <div class="post-content">
+        <h2>
+            <a href="https://medium.com/@suraj11nag/the-fundamentals-what-is-data-modeling-f140f5a7367c">The Fundamentals: What Is Data Modeling?</a>
+        </h2>
+        <div class="post-tags">
+            <span class="tag">DATA ENGINEERING</span>
+            <span class="tag">DATA MODELING</span>
         </div>
-        <div class="blog-post">
-            <h3><a href="https://medium.com/@suraj11nag/step-by-step-guide-to-building-a-data-pipeline-with-python-aws-bf0eb8905174?sk=ab0354b4564ec78f9702c808e2bbc1c0" style="text-decoration: none; color: inherit;">Step-by-Step Guide to Building a Data Pipeline with AWS</a></h3>
-            <div class="blog-date">September 1, 2024</div>
-            <p>Four or five moments! Four or five moments! That's all it takes to be a Data Engineer. People think you wake up a Data Engineer, brush your...</p>
+        <p class="post-description">Six months ago, I started working at a UK-based startup that sells postcards and greeting cards online. Over this time, I've had the chance...</p>
+    </div>
+</article>
+
+<article class="blog-post">
+    <div class="post-date">September 1, 2024</div>
+    <div class="post-content">
+        <h2>
+            <a href="https://medium.com/@suraj11nag/step-by-step-guide-to-building-a-data-pipeline-with-python-aws-bf0eb8905174">Step-by-Step Guide to Building a Data Pipeline with AWS</a>
+        </h2>
+        <div class="post-tags">
+            <span class="tag">DATA ENGINEERING</span>
+            <span class="tag">AWS</span>
+            <span class="tag">PYTHON</span>
         </div>
-        <div class="blog-post">
-            <h3><a href="https://medium.com/@suraj11nag/6-months-of-doing-data-engineering-8ad3030bec79?sk=80186424b3e9ec4c83adbadc79ff087d" style="text-decoration: none; color: inherit;">6 months of Doing — Data Engineering</a></h3>
-            <div class="blog-date">August 30, 2024</div>
-            <p>Six months ago, I joined a UK-based startup that sells postcards and greeting cards on the internet.</p>
+        <p class="post-description">Four or five moments! Four or five moments! That's all it takes to be a Data Engineer. People think you wake up a Data Engineer, brush your...</p>
+    </div>
+</article>
+
+<article class="blog-post">
+    <div class="post-date">August 30, 2024</div>
+    <div class="post-content">
+        <h2>
+            <a href="https://medium.com/@suraj11nag/6-months-of-doing-data-engineering-8ad3030bec79">6 months of Doing — Data Engineering</a>
+        </h2>
+        <div class="post-tags">
+            <span class="tag">DATA ENGINEERING</span>
+            <span class="tag">CAREER</span>
         </div>
-        <div class="blog-post">
-            <h3><a href="https://medium.com/@suraj11nag/fundamental-of-data-engineering-7590545907e5?sk=36ed6278fc0791580a12f9f0e89d0ffa" style="text-decoration: none; color: inherit;">Fundamental of Data Engineering</a></h3>
-            <div class="blog-date">May 31, 2024</div>
-            <p>Data & Data Engineering has been an integral part of human identity since the time of the ancient Romans.</p>
+        <p class="post-description">Six months ago, I joined a UK-based startup that sells postcards and greeting cards on the internet.</p>
+    </div>
+</article>
+
+<article class="blog-post">
+    <div class="post-date">May 31, 2024</div>
+    <div class="post-content">
+        <h2>
+            <a href="https://medium.com/@suraj11nag/fundamental-of-data-engineering-7590545907e5">Fundamental of Data Engineering</a>
+        </h2>
+        <div class="post-tags">
+            <span class="tag">DATA ENGINEERING</span>
+            <span class="tag">FUNDAMENTALS</span>
         </div>
-        <div class="blog-post">
-            <h3><a href="https://medium.com/@suraj11nag/what-is-metadata-d55b846ea6dc?sk=7979886bfc38417b4e1400478c76da3d" style="text-decoration: none; color: inherit;">What is Metadata?</a></h3>
-            <div class="blog-date">December 29, 2023</div>
-            <p>It all starts with a question: What should I order for lunch today?</p>
+        <p class="post-description">Data & Data Engineering has been an integral part of human identity since the time of the ancient Romans.</p>
+    </div>
+</article>
+
+<article class="blog-post">
+    <div class="post-date">December 29, 2023</div>
+    <div class="post-content">
+        <h2>
+            <a href="https://medium.com/@suraj11nag/what-is-metadata-d55b846ea6dc">What is Metadata?</a>
+        </h2>
+        <div class="post-tags">
+            <span class="tag">DATA ENGINEERING</span>
+            <span class="tag">METADATA</span>
         </div>
-        <div class="blog-post">
-            <h3><a href="https://medium.com/@suraj11nag/12-months-of-learning-machine-learning-8cc83798a36d?sk=5c885e7850b82bf99e8c615da16e6a73" style="text-decoration: none; color: inherit;">12 months of Learning — Machine Learning</a></h3>
-            <div class="blog-date">July 2, 2023</div>
-            <p>So it's been about 12 months since I started self-studying machine learning. So I just want to give an update on my progress.</p>
+        <p class="post-description">It all starts with a question: What should I order for lunch today?</p>
+    </div>
+</article>
+
+<article class="blog-post">
+    <div class="post-date">July 2, 2023</div>
+    <div class="post-content">
+        <h2>
+            <a href="https://medium.com/@suraj11nag/12-months-of-learning-machine-learning-8cc83798a36d">12 months of Learning — Machine Learning</a>
+        </h2>
+        <div class="post-tags">
+            <span class="tag">MACHINE LEARNING</span>
+            <span class="tag">LEARNING PATH</span>
         </div>
-        <div class="blog-post">
-            <h3><a href="https://medium.com/@suraj11nag/why-data-scientists-are-graph-ically-obsessed-4fcd73d93935?sk=c2ff2b747cdcbc3b16371f6e489d492d" style="text-decoration: none; color: inherit;">Why Data Scientists are Graph-ically Obsessed</a></h3>
-            <div class="blog-date">February 26, 2023</div>
-            <p>If you've ever looked over a data scientist's shoulder at work, you might have seen this graphs on their computer.</p>
+        <p class="post-description">So it's been about 12 months since I started self-studying machine learning. So I just want to give an update on my progress.</p>
+    </div>
+</article>
+
+<article class="blog-post">
+    <div class="post-date">February 26, 2023</div>
+    <div class="post-content">
+        <h2>
+            <a href="https://medium.com/@suraj11nag/why-data-scientists-are-graph-ically-obsessed-4fcd73d93935">Why Data Scientists are Graph-ically Obsessed</a>
+        </h2>
+        <div class="post-tags">
+            <span class="tag">DATA SCIENCE</span>
+            <span class="tag">VISUALIZATION</span>
         </div>
-        <div class="blog-post">
-            <h3><a href="https://medium.com/@suraj11nag/5-tips-for-landing-a-data-science-job-7ba5ab3c1526?sk=06dd9ce28f6ef383402e6ac2eea76b9c" style="text-decoration: none; color: inherit;">5 Tips for landing a Data Science job</a></h3>
-            <div class="blog-date">January 30, 2023</div>
-            <p>So, you want to get into data science?</p>
+        <p class="post-description">If you've ever looked over a data scientist's shoulder at work, you might have seen this graphs on their computer.</p>
+    </div>
+</article>
+
+<article class="blog-post">
+    <div class="post-date">January 30, 2023</div>
+    <div class="post-content">
+        <h2>
+            <a href="https://medium.com/@suraj11nag/5-tips-for-landing-a-data-science-job-7ba5ab3c1526">5 Tips for landing a Data Science job</a>
+        </h2>
+        <div class="post-tags">
+            <span class="tag">DATA SCIENCE</span>
+            <span class="tag">CAREER</span>
         </div>
-        <div class="blog-post">
-            <h3><a href="https://medium.com/@suraj11nag/why-you-need-maths-for-machine-learning-11a1a6554f51?sk=a2ef41056012d557811954b73ed7f625" style="text-decoration: none; color: inherit;">Why you NEED maths for Machine Learning</a></h3>
-            <div class="blog-date">December 26, 2022</div>
-            <p>I'm going to be mentioning these mathematical topics in the order I think that it should be learned starting with mathematical functions...</p>
+        <p class="post-description">So, you want to get into data science?</p>
+    </div>
+</article>
+
+<article class="blog-post">
+    <div class="post-date">December 26, 2022</div>
+    <div class="post-content">
+        <h2>
+            <a href="https://medium.com/@suraj11nag/why-you-need-maths-for-machine-learning-11a1a6554f51">Why you NEED maths for Machine Learning</a>
+        </h2>
+        <div class="post-tags">
+            <span class="tag">MACHINE LEARNING</span>
+            <span class="tag">MATHEMATICS</span>
         </div>
-        <div class="blog-post">
-            <h3><a href="https://medium.com/@suraj11nag/what-should-be-your-first-machine-learning-model-e946a8c490f6?sk=41dda96e8a920dfb5c862b6196de879b" style="text-decoration: none; color: inherit;">What Should Be Your First Machine Learning Model?</a></h3>
-            <div class="blog-date">November 28, 2022</div>
-            <p>If you're just getting started in machine learning, you might be wondering what your first model should be. In this article, we'll discuss...</p>
+        <p class="post-description">I'm going to be mentioning these mathematical topics in the order I think that it should be learned starting with mathematical functions...</p>
+    </div>
+</article>
+
+<article class="blog-post">
+    <div class="post-date">November 28, 2022</div>
+    <div class="post-content">
+        <h2>
+            <a href="https://medium.com/@suraj11nag/what-should-be-your-first-machine-learning-model-e946a8c490f6">What Should Be Your First Machine Learning Model?</a>
+        </h2>
+        <div class="post-tags">
+            <span class="tag">MACHINE LEARNING</span>
+            <span class="tag">BEGINNERS</span>
         </div>
-        <div class="blog-post">
-            <h3><a href="https://medium.com/@suraj11nag/8-ways-data-science-changed-my-life-232755d3865e" style="text-decoration: none; color: inherit;">8 Ways Machine Learning Changed My Life</a></h3>
-            <div class="blog-date">October 9, 2022</div>
-            <p>Explained with Data Science</p>
+        <p class="post-description">If you're just getting started in machine learning, you might be wondering what your first model should be. In this article, we'll discuss...</p>
+    </div>
+</article>
+
+<article class="blog-post">
+    <div class="post-date">October 9, 2022</div>
+    <div class="post-content">
+        <h2>
+            <a href="https://medium.com/@suraj11nag/8-ways-data-science-changed-my-life-232755d3865e">8 Ways Machine Learning Changed My Life</a>
+        </h2>
+        <div class="post-tags">
+            <span class="tag">MACHINE LEARNING</span>
+            <span class="tag">PERSONAL GROWTH</span>
+        </div>
+        <p class="post-description">Explained with Data Science.</p>
+    </div>
+</article>
         </div>
     </div>
 
@@ -1105,33 +1148,59 @@ h1 {
         </div>
     </div>
 
-    <script>
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Show selected section
-            document.getElementById(sectionId).classList.add('active');
-            
-            // Update active nav link
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if (link.textContent.toLowerCase() === sectionId) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        function toggleTheme() {
-            const body = document.body;
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-            } else {
-                body.setAttribute('data-theme', 'dark');
+<script>
+    // Original showSection function remains the same
+    function showSection(sectionId) {
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.classList.remove('active');
+        });
+        
+        document.getElementById(sectionId).classList.add('active');
+        
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.classList.remove('active');
+            if (link.textContent.toLowerCase() === sectionId) {
+                link.classList.add('active');
             }
+        });
+    }
+
+    // Add search functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.querySelector('.search-input');
+        if (searchInput) {
+            searchInput.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                const blogPosts = document.querySelectorAll('.blog-post');
+
+                blogPosts.forEach(post => {
+                    const title = post.querySelector('h2')?.textContent.toLowerCase() || '';
+                    const description = post.querySelector('.post-description')?.textContent.toLowerCase() || '';
+                    const tag = post.querySelector('.tag')?.textContent.toLowerCase() || '';
+                    const date = post.querySelector('.post-date')?.textContent.toLowerCase() || '';
+
+                    if (title.includes(searchTerm) || 
+                        description.includes(searchTerm) || 
+                        tag.includes(searchTerm) ||
+                        date.includes(searchTerm)) {
+                        post.style.display = 'grid';  // Keep the grid layout
+                    } else {
+                        post.style.display = 'none';
+                    }
+                });
+            });
         }
-    </script>
+    });
+
+    // Original toggleTheme function remains the same
+    function toggleTheme() {
+        const body = document.body;
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+        }
+    }
+</script>
 </body>
 </html>
