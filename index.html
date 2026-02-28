@@ -1,1186 +1,664 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suraj Nag | Data Scientist | Data Engineer</title>
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="467bdb93-dc91-46fe-a567-1396b2030be9"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-
-:root {
-    --background: #000000;  /* Changed to pure black */
-    --text: #ffffff;
-    --subtle: #8892b0;
-    --accent: #64ffda;
-    --accent-light: rgba(100, 255, 218, 0.1);
-    --nav-height: 80px;
-    --border: rgba(100, 255, 218, 0.1);
-    --gradient-1: linear-gradient(45deg, #64ffda, #00bcd4);
-    --gradient-2: linear-gradient(45deg, #00bcd4, #6a7bff);
-    --gradient-3: linear-gradient(45deg, #6a7bff, #64ffda);
-    --neon-shadow: 0 0 10px rgba(100, 255, 218, 0.3),
-                   0 0 20px rgba(100, 255, 218, 0.2),
-                   0 0 30px rgba(100, 255, 218, 0.1);
-    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body {
-    background: var(--background);
-    color: var(--text);
-    font-family: 'Inter', -apple-system, sans-serif;
-    line-height: 1.7;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    position: relative;
-}
-
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 10% 20%, rgba(100, 255, 218, 0.03) 0%, transparent 20%),
-        radial-gradient(circle at 90% 80%, rgba(106, 123, 255, 0.03) 0%, transparent 20%),
-        radial-gradient(circle at 50% 50%, rgba(0, 188, 212, 0.03) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: -1;
-}
-
-.intro-text {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    margin: 4rem 0;
-    max-width: 800px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s forwards 0.8s;
-    text-shadow: 0 0 10px rgba(100, 255, 218, 0.2);
-}
-
-/* Adding a cyber line decoration */
-.intro-text::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -20px;
-    width: 100px;
-    height: 2px;
-    background: var(--accent);
-    box-shadow: var(--neon-shadow);
-    animation: pulseWidth 4s ease-in-out infinite;
-}
-
-@keyframes pulseWidth {
-    0%, 100% { width: 100px; }
-    50% { width: 200px; }
-}
-
-nav {
-    height: var(--nav-height);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 4rem;
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-}
-
-.nav-links a {
-    color: var(--text);
-    text-decoration: none;
-    font-size: 1rem;
-    position: relative;
-    padding: 0.5rem 0;
-    cursor: pointer;
-    transition: color 0.3s ease;
-}
-
-.nav-links a::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background: var(--gradient-1);
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--accent);
-}
-
-.nav-links a:hover::before {
-    transform: scaleX(1);
-    transform-origin: left;
-}
-
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--accent);
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
-}
-
-.content-section {
-    display: none;
-}
-
-.content-section.active {
-    display: block;
-}
-
-h1 {
-    font-size: 3.5rem;
-    font-weight: 600;
-    margin-bottom: 4rem;
-    background: linear-gradient(45deg, var(--text), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.content {
-    display: grid;
-    grid-template-columns: 350px 1fr;
-    gap: 4rem;
-    margin-bottom: 4rem;
-}
-
-.profile-section img {
-    width: 100%;
-    border-radius: 1rem;
-    margin-bottom: 1.5rem;
-    transition: transform 0.3s ease;
-}
-
-.profile-section h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--text);
-}
-
-.profile-section .title {
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
-}
-
-.social-links {
-    display: flex;
-    gap: 1.2rem;
-}
-
-.social-links a {
-    color: var(--text);
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-size: 1.2rem;
-}
-
-.social-links a:hover {
-    color: var(--accent);
-}
-
-.main-content h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: var(--text);
-}
-
-.main-content p {
-    margin-bottom: 2rem;
-    color: var(--accent-dark);
-    font-size: 1.05rem;
-}
-
-.credits {
-    margin-top: 3rem;
-    padding: 2rem;
-    background: var(--accent-light);
-    border-radius: 1rem;
-}
-
-.tools-list {
-    color: var(--accent-dark);
-    margin-top: 1rem;
-    list-style: none;
-}
-
-.tools-list li {
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.tools-list li::before {
-    content: '•';
-    color: var(--accent);
-}
-
-.big-text {
-    font-size: 8rem;
-    line-height: 1;
-    font-weight: 900;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    transform: translateY(20px) perspective(1000px);
-    animation: fadeInUp 0.8s forwards;
-    position: relative;
-    letter-spacing: -2px;
-}
-
-.big-text::before {
-    content: attr(data-text);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    background: var(--gradient-1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% auto;
-    animation: shine 5s linear infinite, glitch 5s infinite;
-}
-
-@keyframes glitch {
-    0%, 100% { transform: none; opacity: 1; }
-    7% { transform: skew(-0.5deg, -0.9deg); opacity: 0.75; }
-    10% { transform: none; opacity: 1; }
-    27% { transform: none; opacity: 1; }
-    30% { transform: skew(0.8deg, -0.1deg); opacity: 0.75; }
-    35% { transform: none; opacity: 1; }
-    52% { transform: none; opacity: 1; }
-    55% { transform: skew(-1deg, 0.2deg); opacity: 0.75; }
-    50% { transform: none; opacity: 1; }
-    72% { transform: none; opacity: 1; }
-    75% { transform: skew(0.4deg, 1deg); opacity: 0.75; }
-    80% { transform: none; opacity: 1; }
-    100% { transform: none; opacity: 1; }
-}
-
-.big-text:nth-child(1)::before { background-image: var(--gradient-1); animation-delay: 0s; }
-.big-text:nth-child(2)::before { background-image: var(--gradient-2); animation-delay: 0.1s; }
-.big-text:nth-child(3)::before { background-image: var(--gradient-3); animation-delay: 0.2s; }
-
-.big-text::before {
-    content: attr(data-text);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    background: var(--gradient-1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% auto;
-    animation: shine 5s linear infinite;
-}
-
-@keyframes shine {
-    to {
-        background-position: 200% center;
-    }
-}
-
-.big-text:nth-child(1)::before { background-image: var(--gradient-1); animation-delay: 0s; }
-.big-text:nth-child(2)::before { background-image: var(--gradient-2); animation-delay: 0.1s; }
-.big-text:nth-child(3)::before { background-image: var(--gradient-3); animation-delay: 0.2s; }
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.big-text:nth-child(1) { animation-delay: 0.2s; }
-.big-text:nth-child(2) { animation-delay: 0.4s; }
-.big-text:nth-child(3) { animation-delay: 0.6s; }
-/* 
-.big-text.pink {
-    position: relative;
-    color: #f0157e;
-    animation: fadeInUp 0.8s forwards;
-} */
-
-.big-text.pink {
-   position: relative;
-   color: #64ffda;  /* Changed to mint/aqua accent */
-   animation: fadeInUp 0.8s forwards;
-}
-
-.big-text.black {
-    position: relative;
-    color: #fff;
-    animation: fadeInUp 0.8s forwards;
-}
-
-.big-text.black::before,
-.big-text.black::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
-    animation: glitchTop 4s infinite linear alternate-reverse;
-}
-
-.big-text.black::after {
-    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
-    animation: glitchBottom 4.1s infinite linear alternate-reverse;
-}
-
-@keyframes glitchTop {
-    0% {
-        transform: translate(0, 0);
-        opacity: 0.8;
-    }
-    10% {
-        transform: translate(-2px, -2px);
-        opacity: 0.6;
-    }
-    20% {
-        transform: translate(2px, 2px);
-        opacity: 0.7;
-    }
-    30% {
-        transform: translate(-2px, 2px);
-        opacity: 0.5;
-    }
-    40% {
-        transform: translate(2px, -2px);
-        opacity: 0.4;
-    }
-    50% {
-        transform: translate(-2px, 2px);
-        opacity: 0.6;
-    }
-}
-
-@keyframes glitchBottom {
-    0% {
-        transform: translate(0, 0);
-        opacity: 0.8;
-    }
-    10% {
-        transform: translate(-2px, 2px);
-        opacity: 0.6;
-    }
-    20% {
-        transform: translate(2px, -2px);
-        opacity: 0.7;
-    }
-    30% {
-        transform: translate(-2px, -2px);
-        opacity: 0.5;
-    }
-    40% {
-        transform: translate(2px, 2px);
-        opacity: 0.4;
-    }
-    50% {
-        transform: translate(-2px, -2px);
-        opacity: 0.6;
-    }
-}
-
-.home-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    padding: 4rem 0;
-}
-
-.intro-text {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    margin: 4rem 0;
-    max-width: 800px;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s forwards 0.8s;
-}
-
-.intro-text p {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.8s forwards 1s;
-}
-
-.wave-emoji {
-    font-size: 2.5rem;
-}
-
-.get-in-touch {
-    color: var(--accent);
-    font-size: 1.2rem;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    transition: opacity 0.3s ease;
-}
-
-.get-in-touch:hover {
-    opacity: 0.8;
-}
-
-.get-in-touch::after {
-    content: '→';
-    font-family: 'Inter', sans-serif;
-}
-
-/* Blog styles */
-/* Blog styles */
-.search-container {
-    position: relative;
-    margin-bottom: 4rem;
-}
-
-.search-input {
-    width: 100%;
-    padding: 1rem;
-    background: #141414;
-    border: none;
-    border-radius: 8px;
-    color: var(--text);
-    font-size: 1rem;
-    font-family: inherit;
-}
-
-.search-input::placeholder {
-    color: #666;
-}
-
-.search-input:focus {
-    outline: none;
-}
-
-.blog-post {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 2rem;
-    margin-bottom: 4rem;
-    align-items: start;
-}
-
-.post-date {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-}
-
-.post-content h2 {
-    font-size: 1.75rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    line-height: 1.3;
-}
-
-.post-content h2 a {
-    color: var(--text);
-    text-decoration: none;
-}
-
-.post-content h2 a:hover {
-    text-decoration: underline;
-}
-
-.post-tags {
-    display: flex;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-}
-
-.tag {
-    color: var(--accent);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    font-weight: 500;
-}
-
-.post-description {
-    color: var(--text-secondary);
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-@media (max-width: 768px) {
-    .blog-post {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-}
-
-/* Project styles */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.project-card {
-    background: rgba(10, 10, 10, 0.7);
-    backdrop-filter: blur(10px);
-    padding: 2rem;
-    border-radius: 1rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid var(--border);
-    position: relative;
-    overflow: hidden;
-    box-shadow: var(--card-shadow);
-    transform-style: preserve-3d;
-    perspective: 1000px;
-}
-
-.project-card:hover {
-    background: rgba(15, 15, 15, 0.9);
-    transform: translateY(-5px) rotateX(5deg) rotateY(5deg);
-    border-color: var(--accent);
-    box-shadow: var(--neon-shadow);
-}
-
-.project-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.1), transparent);
-    transform: translateX(-100%);
-    transition: 0.5s;
-}
-
-.project-card:hover::before {
-    transform: translateX(100%);
-}
-
-.project-card h3 {
-    background: var(--gradient-1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 1rem;
-    position: relative;
-}
-
-.project-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border: 2px solid transparent;
-    border-radius: 1rem;
-    background: linear-gradient(45deg, var(--accent), transparent, var(--accent)) border-box;
-    -webkit-mask: 
-        linear-gradient(#fff 0 0) padding-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: destination-out;
-    mask-composite: exclude;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.project-card:hover::after {
-    opacity: 1;
-}
-
-.project-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    border-color: var(--accent);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-}
-
-.project-card::after {
-    content: '';
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-    top: -50%;
-    left: -50%;
-    transform: rotate(35deg) translate(-100%, -100%);
-    transition: 0.5s;
-}
-
-.project-card:hover::after {
-    transform: rotate(35deg) translate(100%, 100%);
-}
-
-.project-card:hover {
-    transform: translateY(-5px);
-}
-
-.experience-item {
-    margin-bottom: 3rem;
-    padding: 1.5rem;
-    border-left: 2px solid var(--border);
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.experience-item:hover {
-    border-left-color: var(--accent);
-    background: rgba(100, 255, 218, 0.02);
-    transform: translateX(5px);
-}
-
-.experience-item::before {
-    content: '';
-    position: absolute;
-    left: -6px;
-    top: 0;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: var(--accent);
-    opacity: 0.7;
-    transition: all 0.3s ease;
-}
-
-.experience-item:hover::before {
-    transform: scale(1.2);
-    opacity: 1;
-}
-
-.experience-item h3 {
-    color: var(--text);
-    margin-bottom: 0.75rem;
-    font-size: 1.3rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.experience-item h3 .company {
-    color: var(--accent);
-    font-weight: 500;
-}
-
-.experience-date {
-    color: var(--accent);
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    opacity: 0.8;
-}
-
-.experience-date::before {
-    content: '';
-    width: 15px;
-    height: 1px;
-    background: var(--accent);
-    display: inline-block;
-}
-
-.highlight {
-    color: var(--accent);
-    font-weight: 500;
-    position: relative;
-    display: inline-block;
-}
-
-.highlight::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: var(--accent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-    opacity: 0.5;
-}
-
-.highlight:hover::after {
-    transform: scaleX(1);
-}
-
-.experience-item p {
-    color: var(--text);
-    opacity: 0.8;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-}
-
-.experience-item ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.experience-item li {
-    position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.75rem;
-    color: var(--text);
-    opacity: 0.8;
-}
-
-.experience-item li::before {
-    content: '▹';
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-}
-
-@media (max-width: 768px) {
-    .experience-item {
-        padding: 1rem;
-        margin-bottom: 2rem;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suraj Nag</title>
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --muted: #888888;
+      --link: #3366cc;
+      --label: #666666;
+      --border: #e8e8e8;
+      --serif: 'Lora', Georgia, serif;
+      --sans: 'Source Sans 3', system-ui, sans-serif;
     }
 
-    .experience-item h3 {
-        font-size: 1.2rem;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.25rem;
-    }
-}
+    html { font-size: 16px; }
 
-/* Responsive styles */
-@media (max-width: 768px) {
     body {
-        padding: 0 1.5rem;
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
     }
 
-    h1 {
-        font-size: 2.5rem;
-        margin-bottom: 3rem;
+    /* ── Top bar ── */
+    .topbar {
+      padding: 0.5rem 2rem;
+      display: flex;
+      justify-content: flex-end;
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-links { display: flex; gap: 1.5rem; }
+    .topbar-links a { font-size: 0.82rem; color: var(--link); text-decoration: none; }
+    .topbar-links a:hover { text-decoration: underline; }
+
+    /* ── Page wrapper ── */
+    .page { max-width: 980px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── Site name ── */
+    .site-header { padding: 3rem 0 1.5rem; }
+    .site-name {
+      font-family: var(--serif);
+      font-size: 3.2rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      line-height: 1.1;
     }
 
-    .content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    /* ── Nav ── */
+    .section-nav { margin: 0.5rem 0 2rem; }
+    .section-nav-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--label);
+      margin-bottom: 0.2rem;
+    }
+    .section-nav-links { display: flex; gap: 1.5rem; }
+    .section-nav-links a {
+      font-size: 0.9rem;
+      color: var(--link);
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .section-nav-links a:hover { text-decoration: underline; }
+    .section-nav-links a.active {
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      cursor: default;
     }
 
-    .profile-section img {
-        max-width: 280px;
+    /* ── Two-column layout ── */
+    .layout {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 3rem;
+      padding-bottom: 4rem;
     }
 
-    .big-text {
-        font-size: 4rem;
+    /* ── Sidebar ── */
+    .sidebar { padding-top: 0.25rem; }
+    .sidebar-section { margin-bottom: 2rem; }
+    .sidebar-heading {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--label);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .sidebar a {
+      display: block;
+      font-size: 0.88rem;
+      color: var(--link);
+      text-decoration: none;
+      line-height: 1.8;
+      cursor: pointer;
+    }
+    .sidebar a:hover { text-decoration: underline; }
+    .sidebar .count { color: var(--muted); font-size: 0.82rem; }
+
+    /* ── Profile photo ── */
+    .profile-photo {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      object-position: center top;
+      margin-bottom: 1.5rem;
+      display: block;
     }
 
-    .intro-text {
-        font-size: 1.8rem;
-        margin: 2rem 0;
+    /* ── Search bar ── */
+    .search-wrap { position: relative; margin-bottom: 2rem; }
+    .search-wrap svg {
+      position: absolute;
+      left: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      width: 15px;
+      height: 15px;
+    }
+    .search-input {
+      width: 100%;
+      padding: 0.55rem 1rem 0.55rem 2.2rem;
+      border: 1px solid #d0d0d0;
+      border-radius: 4px;
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      color: var(--text);
+      background: #fff;
+      outline: none;
+    }
+    .search-input:focus { border-color: #aaa; }
+    .search-input::placeholder { color: #aaa; }
+
+    /* ── Item list (writing + projects) ── */
+    .item-list { list-style: none; }
+    .item {
+      margin-bottom: 1.6rem;
+      padding-bottom: 1.6rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .item:last-child { border-bottom: none; }
+    .item-title {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin-bottom: 0.15rem;
+      line-height: 1.4;
+    }
+    .item-title a { color: var(--link); text-decoration: none; }
+    .item-title a:hover { text-decoration: underline; }
+    .item-date {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .item-desc { font-size: 0.9rem; color: #444; line-height: 1.55; margin-top: 0.3rem; }
+    .item-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+    .tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 0.1rem 0.4rem;
+      border-radius: 2px;
     }
 
-    nav {
-        height: auto;
-        padding: 1rem 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+    /* ── Bio (home) ── */
+    .bio-block { margin-bottom: 2.5rem; }
+    .bio-block p { font-size: 0.97rem; color: #333; line-height: 1.7; margin-bottom: 0.9rem; }
+    .bio-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
+    .bio-links a { font-size: 0.88rem; color: var(--link); text-decoration: none; }
+    .bio-links a:hover { text-decoration: underline; }
 
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-        margin-bottom: 1rem;
+    /* ── Tech stack ── */
+    .stack-section { margin-top: 2rem; }
+    .stack-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--label);
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
     }
-}
-    </style>
+    .stack-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 0.5rem 1.5rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+    .stack-row:last-child { border-bottom: none; }
+    .stack-key {
+      color: var(--label);
+      font-weight: 600;
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      padding-top: 0.1rem;
+    }
+    .stack-val { color: #333; }
+
+    /* ── Experience ── */
+    .exp-item { padding: 1.4rem 0; border-bottom: 1px solid var(--border); }
+    .exp-item:first-child { border-top: 1px solid var(--border); }
+    .exp-role {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 0.1rem;
+    }
+    .exp-where { font-size: 0.82rem; color: var(--link); margin-bottom: 0.15rem; }
+    .exp-period {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+    .exp-item ul { list-style: none; padding: 0; }
+    .exp-item li {
+      font-size: 0.88rem;
+      color: #444;
+      padding-left: 1.1rem;
+      position: relative;
+      margin-bottom: 0.25rem;
+      line-height: 1.55;
+    }
+    .exp-item li::before { content: '–'; position: absolute; left: 0; color: var(--muted); }
+
+    /* ── Section visibility ── */
+    .section { display: none; }
+    .section.active { display: block; }
+
+    /* ── Responsive ── */
+    @media (max-width: 680px) {
+      .layout { grid-template-columns: 1fr; gap: 1.5rem; }
+      .site-name { font-size: 2.2rem; }
+      .stack-row { grid-template-columns: 1fr; gap: 0.1rem; }
+      .profile-photo { max-width: 160px; }
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-links">
-            <a onclick="showSection('home')" class="active">Home</a>
-            <a onclick="showSection('about')">About</a>
-            <a onclick="showSection('blog')">Blog</a>
-            <a onclick="showSection('projects')">Projects</a>
-            <a onclick="showSection('experience')">Experience</a>
-        </div>
-    </nav>
 
-    <div id="home" class="content-section active">
-        <div class="home-container">
-            <div class="big-text pink">Blog.</div>
-            <div class="big-text black">Showcase.</div>
-            <div class="big-text black">Portfolio.</div>
-            
-            <div class="intro-text">
-                Hello! I'm Suraj <span class="wave-emoji">👋</span>
-                <p style="font-size: 1.2rem; margin-top: 1rem; color: var(--subtle);">
-                    I am a data engineer focused on building efficient data pipelines and analytics solutions.
-                </p>
-                <a href="https://www.linkedin.com/in/suraj11nag/" class="get-in-touch">Get in touch</a>
-            </div>
-        </div>
-    </div>
+<!-- Top bar -->
+<div class="topbar">
+  <div class="topbar-links">
+    <a href="mailto:suraj11nag@gmail.com">Email</a>
+    <a href="https://github.com/Suraj11nag" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/suraj11nag" target="_blank">LinkedIn</a>
+    <a href="https://medium.com/@suraj11nag" target="_blank">Medium</a>
+    <a href="https://twitter.com/Suraj11nag" target="_blank">Twitter</a>
+  </div>
+</div>
 
-    <div id="about" class="content-section">
-        <h1>About</h1>
-        <div class="content">
-            <div class="profile-section">
-                <img src="assets/Suraj_Nag_Profile.jpg" alt="Suraj Nag" />
-                <h2>Suraj Nag</h2>
-                <div class="title">Data Engineer & Data Scientist</div>
-                <div class="social-links">
-                    <a href="mailto:suraj11nag@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="https://github.com/Suraj11nag" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/suraj11nag" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://twitter.com/Suraj11nag" title="Twitter"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-            <div class="main-content">
-                <h2>Hello, I'm Suraj</h2>
-                <p>Welcome to my digital space. This site serves as a portfolio of my work in <span class="highlight">data engineering</span>, <span class="highlight">data science</span> and <span class="highlight">machine learning</span>, as well as a platform to share insights and experiences from my journey in tech.</p>
-                <p>I'm a data engineer and machine learning passionate about building data pipelines and automation systems and exploring the frontiers of AI technology. With expertise in both data engineering and machine learning, I bridge the gap between robust data infrastructure and intelligent systems.</p>
-                <div class="credits">
-                    <h2>Tech Stack</h2>
-                    <p>Built with modern data engineering tools and frameworks:</p>
-                    <ul class="tools-list">
-                        <li>Data Engineering: Airflow, Airbyte, dbt, Hevo, Docker, CI/CD</li>
-                        <li>Databases & Warehouses: PostgreSQL, MongoDB, Redshift, Snowflake, BigQuery</li>
-                        <li>Cloud & Infrastructure: AWS (S3, Lambda, EC2), Databricks, Spark</li>
-                        <li>Analytics & BI: Looker, Metabase, Tableau, Power BI, Google Data Studio</li>
-                        <li>Programming & ML: Python, SQL, Excel, TensorFlow, Scikit-Learn, Pandas, NumPy</li>
-                        <li>Analytics Tools: GA 4, Amplitude, Mixpanel, Clevertap</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="page">
 
-    <div id="blog" class="content-section">
-        <h1>All Posts</h1>
-        
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Search articles">
-        </div>
-    
-        <div class="blog-posts">
-            <!-- Blog Posts -->
-<article class="blog-post">
-    <div class="post-date">December 21, 2024</div>
-    <div class="post-content">
-        <h2>
-            <a href="https://medium.com/@suraj11nag/the-data-engineering-lifecycle-1c1eddeeac2c">The Data Engineering Lifecycle</a>
-        </h2>
-        <div class="post-tags">
-            <span class="tag">DATA ENGINEERING</span>
-        </div>
-        <p class="post-description">Welcome to the wild world of data engineering, where the goal is simple: take a bunch of raw, unpolished data and transform it into...</p>
-    </div>
-</article>
+  <!-- Name -->
+  <div class="site-header">
+    <div class="site-name">Suraj Nag</div>
+  </div>
 
-<article class="blog-post">
-    <div class="post-date">September 9, 2024</div>
-    <div class="post-content">
-        <h2>
-            <a href="https://medium.com/@suraj11nag/the-fundamentals-what-is-data-modeling-f140f5a7367c">The Fundamentals: What Is Data Modeling?</a>
-        </h2>
-        <div class="post-tags">
-            <span class="tag">DATA ENGINEERING</span>
-            <span class="tag">DATA MODELING</span>
-        </div>
-        <p class="post-description">Six months ago, I started working at a UK-based startup that sells postcards and greeting cards online. Over this time, I've had the chance...</p>
+  <!-- Navigation -->
+  <div class="section-nav">
+    <div class="section-nav-label">Navigate</div>
+    <div class="section-nav-links">
+      <a id="nav-home"       onclick="show('home')"       class="active">Home</a>
+      <a id="nav-writing"    onclick="show('writing')">Writing</a>
+      <a id="nav-projects"   onclick="show('projects')">Projects</a>
+      <a id="nav-experience" onclick="show('experience')">Experience</a>
     </div>
-</article>
+  </div>
 
-<article class="blog-post">
-    <div class="post-date">September 1, 2024</div>
-    <div class="post-content">
-        <h2>
-            <a href="https://medium.com/@suraj11nag/step-by-step-guide-to-building-a-data-pipeline-with-python-aws-bf0eb8905174">Step-by-Step Guide to Building a Data Pipeline with AWS</a>
-        </h2>
-        <div class="post-tags">
-            <span class="tag">DATA ENGINEERING</span>
-            <span class="tag">AWS</span>
-            <span class="tag">PYTHON</span>
-        </div>
-        <p class="post-description">Four or five moments! Four or five moments! That's all it takes to be a Data Engineer. People think you wake up a Data Engineer, brush your...</p>
-    </div>
-</article>
+  <!-- ══════════════ HOME ══════════════ -->
+  <div id="home" class="section active">
+    <div class="layout">
 
-<article class="blog-post">
-    <div class="post-date">August 30, 2024</div>
-    <div class="post-content">
-        <h2>
-            <a href="https://medium.com/@suraj11nag/6-months-of-doing-data-engineering-8ad3030bec79">6 months of Doing — Data Engineering</a>
-        </h2>
-        <div class="post-tags">
-            <span class="tag">DATA ENGINEERING</span>
-            <span class="tag">CAREER</span>
+      <div class="sidebar">
+        <img class="profile-photo" src="assets/suraj.png" alt="Suraj Nag" />
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Browse by Topic</div>
+          <a onclick="show('writing'); filterTag('Data Engineering')">Data Engineering</a>
+          <a onclick="show('writing'); filterTag('Machine Learning')">Machine Learning</a>
+          <a onclick="show('writing'); filterTag('Data Science')">Data Science</a>
+          <a onclick="show('writing'); filterTag('Career')">Career</a>
         </div>
-        <p class="post-description">Six months ago, I joined a UK-based startup that sells postcards and greeting cards on the internet.</p>
-    </div>
-</article>
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Writing Archive</div>
+          <a onclick="show('writing'); filterYear('2024')">2024 <span class="count">(5)</span></a>
+          <a onclick="show('writing'); filterYear('2023')">2023 <span class="count">(4)</span></a>
+          <a onclick="show('writing'); filterYear('2022')">2022 <span class="count">(3)</span></a>
+        </div>
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Elsewhere</div>
+          <a href="https://github.com/Suraj11nag" target="_blank">GitHub &#8599;</a>
+          <a href="https://medium.com/@suraj11nag" target="_blank">Medium &#8599;</a>
+          <a href="https://public.tableau.com/app/profile/suraj.nag3006" target="_blank">Tableau &#8599;</a>
+        </div>
+      </div>
 
-<article class="blog-post">
-    <div class="post-date">May 31, 2024</div>
-    <div class="post-content">
-        <h2>
-            <a href="https://medium.com/@suraj11nag/fundamental-of-data-engineering-7590545907e5">Fundamental of Data Engineering</a>
-        </h2>
-        <div class="post-tags">
-            <span class="tag">DATA ENGINEERING</span>
-            <span class="tag">FUNDAMENTALS</span>
+      <div class="main">
+        <div class="bio-block">
+          <p>I'm a data engineer building pipelines, warehouses, and analytics infrastructure. Currently at <strong>TouchNote</strong> in the UK, working across Airflow, dbt, Redshift, and Looker.</p>
+          <p>Before that, I worked as a data engineer at Open Financial Technologies and as a data analyst at Mojocare and Eloelo. I'm interested in the full journey of data — ingestion, modeling, governance, and the downstream decisions it enables.</p>
+          <p>I also write about data engineering, machine learning, and the craft of working with data.</p>
+          <div class="bio-links">
+            <a href="mailto:suraj11nag@gmail.com">suraj11nag@gmail.com</a>
+            <a href="https://www.linkedin.com/in/suraj11nag" target="_blank">LinkedIn</a>
+            <a href="https://github.com/Suraj11nag" target="_blank">GitHub</a>
+          </div>
         </div>
-        <p class="post-description">Data & Data Engineering has been an integral part of human identity since the time of the ancient Romans.</p>
-    </div>
-</article>
 
-<article class="blog-post">
-    <div class="post-date">December 29, 2023</div>
-    <div class="post-content">
-        <h2>
-            <a href="https://medium.com/@suraj11nag/what-is-metadata-d55b846ea6dc">What is Metadata?</a>
-        </h2>
-        <div class="post-tags">
-            <span class="tag">DATA ENGINEERING</span>
-            <span class="tag">METADATA</span>
+        <div class="stack-section">
+          <div class="stack-label">Tech Stack</div>
+          <div class="stack-row">
+            <div class="stack-key">Orchestration &amp; ELT</div>
+            <div class="stack-val">Airflow, Airbyte, Hevo, dbt, Docker, CI/CD</div>
+          </div>
+          <div class="stack-row">
+            <div class="stack-key">Warehouses &amp; DBs</div>
+            <div class="stack-val">Redshift, BigQuery, Snowflake, PostgreSQL, MongoDB</div>
+          </div>
+          <div class="stack-row">
+            <div class="stack-key">Cloud &amp; Compute</div>
+            <div class="stack-val">AWS (S3, Lambda, EC2), Databricks, Spark</div>
+          </div>
+          <div class="stack-row">
+            <div class="stack-key">BI &amp; Visualisation</div>
+            <div class="stack-val">Looker, Metabase, Tableau, Power BI, Google Data Studio</div>
+          </div>
+          <div class="stack-row">
+            <div class="stack-key">Programming &amp; ML</div>
+            <div class="stack-val">Python, SQL, TensorFlow, Scikit-Learn, Pandas, NumPy</div>
+          </div>
+          <div class="stack-row">
+            <div class="stack-key">Product Analytics</div>
+            <div class="stack-val">GA4, Amplitude, Mixpanel, Clevertap</div>
+          </div>
         </div>
-        <p class="post-description">It all starts with a question: What should I order for lunch today?</p>
-    </div>
-</article>
+      </div>
 
-<article class="blog-post">
-    <div class="post-date">July 2, 2023</div>
-    <div class="post-content">
-        <h2>
-            <a href="https://medium.com/@suraj11nag/12-months-of-learning-machine-learning-8cc83798a36d">12 months of Learning — Machine Learning</a>
-        </h2>
-        <div class="post-tags">
-            <span class="tag">MACHINE LEARNING</span>
-            <span class="tag">LEARNING PATH</span>
-        </div>
-        <p class="post-description">So it's been about 12 months since I started self-studying machine learning. So I just want to give an update on my progress.</p>
     </div>
-</article>
+  </div>
 
-<article class="blog-post">
-    <div class="post-date">February 26, 2023</div>
-    <div class="post-content">
-        <h2>
-            <a href="https://medium.com/@suraj11nag/why-data-scientists-are-graph-ically-obsessed-4fcd73d93935">Why Data Scientists are Graph-ically Obsessed</a>
-        </h2>
-        <div class="post-tags">
-            <span class="tag">DATA SCIENCE</span>
-            <span class="tag">VISUALIZATION</span>
-        </div>
-        <p class="post-description">If you've ever looked over a data scientist's shoulder at work, you might have seen this graphs on their computer.</p>
-    </div>
-</article>
+  <!-- ══════════════ WRITING ══════════════ -->
+  <div id="writing" class="section">
+    <div class="layout">
 
-<article class="blog-post">
-    <div class="post-date">January 30, 2023</div>
-    <div class="post-content">
-        <h2>
-            <a href="https://medium.com/@suraj11nag/5-tips-for-landing-a-data-science-job-7ba5ab3c1526">5 Tips for landing a Data Science job</a>
-        </h2>
-        <div class="post-tags">
-            <span class="tag">DATA SCIENCE</span>
-            <span class="tag">CAREER</span>
+      <div class="sidebar">
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Browse by Topic</div>
+          <a onclick="filterTag('')">All posts</a>
+          <a onclick="filterTag('Data Engineering')">Data Engineering</a>
+          <a onclick="filterTag('Machine Learning')">Machine Learning</a>
+          <a onclick="filterTag('Data Science')">Data Science</a>
+          <a onclick="filterTag('Career')">Career</a>
         </div>
-        <p class="post-description">So, you want to get into data science?</p>
-    </div>
-</article>
+        <div class="sidebar-section">
+          <div class="sidebar-heading">By Year</div>
+          <a onclick="filterYear('')">All years</a>
+          <a onclick="filterYear('2024')">2024 <span class="count">(5)</span></a>
+          <a onclick="filterYear('2023')">2023 <span class="count">(4)</span></a>
+          <a onclick="filterYear('2022')">2022 <span class="count">(3)</span></a>
+        </div>
+      </div>
 
-<article class="blog-post">
-    <div class="post-date">December 26, 2022</div>
-    <div class="post-content">
-        <h2>
-            <a href="https://medium.com/@suraj11nag/why-you-need-maths-for-machine-learning-11a1a6554f51">Why you NEED maths for Machine Learning</a>
-        </h2>
-        <div class="post-tags">
-            <span class="tag">MACHINE LEARNING</span>
-            <span class="tag">MATHEMATICS</span>
+      <div class="main">
+        <div class="search-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+          <input class="search-input" type="text" id="search-input" placeholder="Search this site..." oninput="filterSearch(this.value)" />
         </div>
-        <p class="post-description">I'm going to be mentioning these mathematical topics in the order I think that it should be learned starting with mathematical functions...</p>
-    </div>
-</article>
 
-<article class="blog-post">
-    <div class="post-date">November 28, 2022</div>
-    <div class="post-content">
-        <h2>
-            <a href="https://medium.com/@suraj11nag/what-should-be-your-first-machine-learning-model-e946a8c490f6">What Should Be Your First Machine Learning Model?</a>
-        </h2>
-        <div class="post-tags">
-            <span class="tag">MACHINE LEARNING</span>
-            <span class="tag">BEGINNERS</span>
-        </div>
-        <p class="post-description">If you're just getting started in machine learning, you might be wondering what your first model should be. In this article, we'll discuss...</p>
-    </div>
-</article>
+        <ul class="item-list" id="writing-list">
 
-<article class="blog-post">
-    <div class="post-date">October 9, 2022</div>
-    <div class="post-content">
-        <h2>
-            <a href="https://medium.com/@suraj11nag/8-ways-data-science-changed-my-life-232755d3865e">8 Ways Machine Learning Changed My Life</a>
-        </h2>
-        <div class="post-tags">
-            <span class="tag">MACHINE LEARNING</span>
-            <span class="tag">PERSONAL GROWTH</span>
-        </div>
-        <p class="post-description">Explained with Data Science.</p>
-    </div>
-</article>
-        </div>
-    </div>
+          <li class="item" data-tags="data engineering" data-year="2024">
+            <div class="item-title"><a href="https://medium.com/@suraj11nag/the-data-engineering-lifecycle-1c1eddeeac2c" target="_blank">The Data Engineering Lifecycle</a></div>
+            <div class="item-date">December 21, 2024</div>
+            <div class="item-desc">Taking raw, unpolished data and transforming it into something useful — a tour through the full lifecycle.</div>
+            <div class="item-tags"><span class="tag">Data Engineering</span></div>
+          </li>
 
-    <div id="projects" class="content-section">
-        <h1>Projects</h1>
-        <div class="project-grid">
-            <div class="project-card">
-                <h3><a href="https://github.com/Suraj11nag/Machine-Learning-Project" style="text-decoration: none; color: inherit;">Machine Learning Models</a></h3>
-                <p>Developed machine learning models for predicting heart disease based on medical attributes using Python and scikit-learn.</p>
-            </div>
-            <div class="project-card">
-                <h3><a href="https://github.com/Suraj11nag/dog-vision-deep-learning-project" style="text-decoration: none; color: inherit;">Deep Learning Image Classifier</a></h3>
-                <p>Created an end-to-end multi-class image classifier deep learning model using TensorFlow 2.0 and TensorFlow Hub.</p>
-            </div>
-            <div class="project-card">
-                <h3><a href="https://github.com/Suraj11nag/airflow_data_pipeline/tree/main/airflow" style="text-decoration: none; color: inherit;">Forex Data Pipeline</a></h3>
-                <p>Created a forex data pipeline to facilitate efficient data management and analysis for financial insights.</p>
-            </div>
-            <div class="project-card">
-                <h3><a href="https://public.tableau.com/app/profile/suraj.nag3006" style="text-decoration: none; color: inherit;">Data Visualization Project</a></h3>
-                <p>Utilized Kaggle datasets to build a local database, perform EDA using SQL, and build data visualizations using Tableau.</p>
-            </div>
-            <div class="project-card">
-                <h3><a href="https://github.com/Suraj11nag/langchain" style="text-decoration: none; color: inherit;">AI Chatbot</a></h3>
-                <p>Developed a domain-specific chatbot using LLMs and Langchain with external sources of computation and data.</p>
-            </div>
-            <div class="project-card">
-                <h3><a href="https://github.com/Suraj11nag/book-recommender" style="text-decoration: none; color: inherit;">Web Applications</a></h3>
-                <p>Built several ML-powered web apps including a Spam Detector, Book Recommender, and NLP Business Assistance app using Streamlit.</p>
-            </div>
-        </div>
-    </div>
+          <li class="item" data-tags="data engineering data modeling" data-year="2024">
+            <div class="item-title"><a href="https://medium.com/@suraj11nag/the-fundamentals-what-is-data-modeling-f140f5a7367c" target="_blank">The Fundamentals: What Is Data Modeling?</a></div>
+            <div class="item-date">September 9, 2024</div>
+            <div class="item-desc">Six months into a UK-based startup, reflections on data modeling from first principles.</div>
+            <div class="item-tags"><span class="tag">Data Engineering</span><span class="tag">Data Modeling</span></div>
+          </li>
 
-    <div id="experience" class="content-section">
-        <h1>Experience</h1>
-        <div class="experience-item">
-            <h3>Data Engineer - TouchNote</h3>
-            <div class="experience-date">02/2024 - Current</div>
-            <p>• Managed data pipelines using Airbyte and Hevo to migrate and sync data from PostgreSQL RDS to Amazon Redshift<br>
-            • Developed and maintained 20+ Airflow DAGs to orchestrate data workflows<br>
-            • Implemented dbt from scratch to build key data marts and automate testing<br>
-            • Built and optimized LookML code for data models and dashboards</p>
-        </div>
-        <div class="experience-item">
-            <h3>Data Engineer - Open Financial Technologies</h3>
-            <div class="experience-date">12/2022 - 02/2024</div>
-            <p>• Automated reports and alerts using Looker & Metabase<br>
-            • Optimized SQL queries, reducing runtime by 90%<br>
-            • Migrated large-scale datasets to BigQuery<br>
-            • Developed Python scripts for data transformation and automation</p>
-        </div>
-        <div class="experience-item">
-            <h3>Data Analyst - Mojocare</h3>
-            <div class="experience-date">09/2021 - 12/2022</div>
-            <p>• Automated tasks for daily reports and data extraction<br>
-            • Designed event architecture for Mixpanel, Clevertap, and GA 4<br>
-            • Implemented data pipelines using Hevo<br>
-            • Automated data reconciliation process, increasing efficiency by 90%</p>
-        </div>
-        <div class="experience-item">
-            <h3>Data Analyst - Eloelo</h3>
-            <div class="experience-date">12/2020 - 09/2021</div>
-            <p>• Developed KPIs for mobile application with 500K users<br>
-            • Built data and reporting infrastructure from scratch<br>
-            • Utilized Google Analytics and Facebook Analytics for funnel analysis</p>
-        </div>
+          <li class="item" data-tags="data engineering aws python" data-year="2024">
+            <div class="item-title"><a href="https://medium.com/@suraj11nag/step-by-step-guide-to-building-a-data-pipeline-with-python-aws-bf0eb8905174" target="_blank">Step-by-Step Guide to Building a Data Pipeline with AWS</a></div>
+            <div class="item-date">September 1, 2024</div>
+            <div class="item-desc">A practical walkthrough of building a production data pipeline using Python and AWS services.</div>
+            <div class="item-tags"><span class="tag">Data Engineering</span><span class="tag">AWS</span><span class="tag">Python</span></div>
+          </li>
+
+          <li class="item" data-tags="data engineering career" data-year="2024">
+            <div class="item-title"><a href="https://medium.com/@suraj11nag/6-months-of-doing-data-engineering-8ad3030bec79" target="_blank">6 Months of Doing — Data Engineering</a></div>
+            <div class="item-date">August 30, 2024</div>
+            <div class="item-desc">An honest retrospective on joining a startup and learning data engineering by doing.</div>
+            <div class="item-tags"><span class="tag">Data Engineering</span><span class="tag">Career</span></div>
+          </li>
+
+          <li class="item" data-tags="data engineering fundamentals" data-year="2024">
+            <div class="item-title"><a href="https://medium.com/@suraj11nag/fundamental-of-data-engineering-7590545907e5" target="_blank">Fundamentals of Data Engineering</a></div>
+            <div class="item-date">May 31, 2024</div>
+            <div class="item-desc">Data engineering as an integral part of human civilisation — from ancient Romans to modern pipelines.</div>
+            <div class="item-tags"><span class="tag">Data Engineering</span><span class="tag">Fundamentals</span></div>
+          </li>
+
+          <li class="item" data-tags="data engineering metadata" data-year="2023">
+            <div class="item-title"><a href="https://medium.com/@suraj11nag/what-is-metadata-d55b846ea6dc" target="_blank">What is Metadata?</a></div>
+            <div class="item-date">December 29, 2023</div>
+            <div class="item-desc">Starting with a simple question — what should I order for lunch? — to explain what metadata really means.</div>
+            <div class="item-tags"><span class="tag">Data Engineering</span><span class="tag">Metadata</span></div>
+          </li>
+
+          <li class="item" data-tags="machine learning" data-year="2023">
+            <div class="item-title"><a href="https://medium.com/@suraj11nag/12-months-of-learning-machine-learning-8cc83798a36d" target="_blank">12 Months of Learning — Machine Learning</a></div>
+            <div class="item-date">July 2, 2023</div>
+            <div class="item-desc">A candid update on 12 months of self-studying ML — what worked, what didn't, and what's next.</div>
+            <div class="item-tags"><span class="tag">Machine Learning</span><span class="tag">Learning Path</span></div>
+          </li>
+
+          <li class="item" data-tags="data science visualisation" data-year="2023">
+            <div class="item-title"><a href="https://medium.com/@suraj11nag/why-data-scientists-are-graph-ically-obsessed-4fcd73d93935" target="_blank">Why Data Scientists are Graph-ically Obsessed</a></div>
+            <div class="item-date">February 26, 2023</div>
+            <div class="item-desc">On the central role of visualisation in data science practice.</div>
+            <div class="item-tags"><span class="tag">Data Science</span><span class="tag">Visualisation</span></div>
+          </li>
+
+          <li class="item" data-tags="data science career" data-year="2023">
+            <div class="item-title"><a href="https://medium.com/@suraj11nag/5-tips-for-landing-a-data-science-job-7ba5ab3c1526" target="_blank">5 Tips for Landing a Data Science Job</a></div>
+            <div class="item-date">January 30, 2023</div>
+            <div class="item-desc">Practical advice for breaking into data science.</div>
+            <div class="item-tags"><span class="tag">Data Science</span><span class="tag">Career</span></div>
+          </li>
+
+          <li class="item" data-tags="machine learning mathematics" data-year="2022">
+            <div class="item-title"><a href="https://medium.com/@suraj11nag/why-you-need-maths-for-machine-learning-11a1a6554f51" target="_blank">Why You Need Maths for Machine Learning</a></div>
+            <div class="item-date">December 26, 2022</div>
+            <div class="item-desc">A guided tour through the mathematical topics that actually matter for ML — in the right order.</div>
+            <div class="item-tags"><span class="tag">Machine Learning</span><span class="tag">Mathematics</span></div>
+          </li>
+
+          <li class="item" data-tags="machine learning beginners" data-year="2022">
+            <div class="item-title"><a href="https://medium.com/@suraj11nag/what-should-be-your-first-machine-learning-model-e946a8c490f6" target="_blank">What Should Be Your First Machine Learning Model?</a></div>
+            <div class="item-date">November 28, 2022</div>
+            <div class="item-desc">Guidance for beginners on where to start and why the choice matters.</div>
+            <div class="item-tags"><span class="tag">Machine Learning</span><span class="tag">Beginners</span></div>
+          </li>
+
+          <li class="item" data-tags="machine learning personal growth" data-year="2022">
+            <div class="item-title"><a href="https://medium.com/@suraj11nag/8-ways-data-science-changed-my-life-232755d3865e" target="_blank">8 Ways Machine Learning Changed My Life</a></div>
+            <div class="item-date">October 9, 2022</div>
+            <div class="item-desc">Explained with data science.</div>
+            <div class="item-tags"><span class="tag">Machine Learning</span><span class="tag">Personal Growth</span></div>
+          </li>
+
+        </ul>
+      </div>
+
     </div>
+  </div>
+
+  <!-- ══════════════ PROJECTS ══════════════ -->
+  <div id="projects" class="section">
+    <div class="layout">
+
+      <div class="sidebar">
+        <div class="sidebar-section">
+          <div class="sidebar-heading">All Projects</div>
+          <a href="https://github.com/Suraj11nag" target="_blank">GitHub profile &#8599;</a>
+        </div>
+      </div>
+
+      <div class="main">
+        <ul class="item-list">
+
+          <li class="item">
+            <div class="item-title"><a href="https://github.com/Suraj11nag/airflow_data_pipeline/tree/main/airflow" target="_blank">Forex Data Pipeline</a></div>
+            <div class="item-date">2024</div>
+            <div class="item-desc">End-to-end Airflow pipeline to ingest forex rates, transform and load into a warehouse for financial analytics.</div>
+            <div class="item-tags"><span class="tag">Python</span><span class="tag">Airflow</span><span class="tag">PostgreSQL</span></div>
+          </li>
+
+          <li class="item">
+            <div class="item-title"><a href="https://github.com/Suraj11nag/langchain" target="_blank">AI Chatbot with LangChain</a></div>
+            <div class="item-date">2023</div>
+            <div class="item-desc">Domain-specific chatbot using LLMs and LangChain with external data sources and retrieval-augmented generation.</div>
+            <div class="item-tags"><span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">LLMs</span></div>
+          </li>
+
+          <li class="item">
+            <div class="item-title"><a href="https://github.com/Suraj11nag/dog-vision-deep-learning-project" target="_blank">Deep Learning Image Classifier</a></div>
+            <div class="item-date">2023</div>
+            <div class="item-desc">Multi-class image classifier using TensorFlow 2.0 and TensorFlow Hub for dog breed identification.</div>
+            <div class="item-tags"><span class="tag">TensorFlow</span><span class="tag">Python</span><span class="tag">Deep Learning</span></div>
+          </li>
+
+          <li class="item">
+            <div class="item-title"><a href="https://github.com/Suraj11nag/Machine-Learning-Project" target="_blank">Heart Disease Prediction</a></div>
+            <div class="item-date">2023</div>
+            <div class="item-desc">ML models for predicting heart disease from medical attributes using Python and scikit-learn.</div>
+            <div class="item-tags"><span class="tag">Scikit-Learn</span><span class="tag">Python</span><span class="tag">ML</span></div>
+          </li>
+
+          <li class="item">
+            <div class="item-title"><a href="https://public.tableau.com/app/profile/suraj.nag3006" target="_blank">Data Visualization Suite</a></div>
+            <div class="item-date">2023</div>
+            <div class="item-desc">Kaggle datasets processed with SQL for EDA, then visualized with interactive Tableau dashboards.</div>
+            <div class="item-tags"><span class="tag">SQL</span><span class="tag">Tableau</span><span class="tag">EDA</span></div>
+          </li>
+
+          <li class="item">
+            <div class="item-title"><a href="https://github.com/Suraj11nag/book-recommender" target="_blank">ML Web Applications</a></div>
+            <div class="item-date">2022</div>
+            <div class="item-desc">Several ML-powered Streamlit apps: Spam Detector, Book Recommender, and NLP Business Assistant.</div>
+            <div class="item-tags"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">NLP</span></div>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════ EXPERIENCE ══════════════ -->
+  <div id="experience" class="section">
+    <div class="layout">
+
+      <div class="sidebar">
+        <div class="sidebar-section">
+          <div class="sidebar-heading">Timeline</div>
+          <div style="font-size:0.82rem; color:var(--muted); line-height:2.2;">
+            2024 &ndash; Present<br>
+            2022 &ndash; 2024<br>
+            2021 &ndash; 2022<br>
+            2020 &ndash; 2021
+          </div>
+        </div>
+      </div>
+
+      <div class="main">
+
+        <div class="exp-item">
+          <div class="exp-role">Data Engineer</div>
+          <div class="exp-where">TouchNote &middot; London, UK</div>
+          <div class="exp-period">February 2024 &mdash; Present</div>
+          <ul>
+            <li>Managed data pipelines using Airbyte and Hevo to migrate and sync data from PostgreSQL RDS to Amazon Redshift</li>
+            <li>Developed and maintained 20+ Airflow DAGs to orchestrate data workflows</li>
+            <li>Implemented dbt from scratch to build key data marts and automate testing</li>
+            <li>Built and optimized LookML code for data models and dashboards</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-role">Data Engineer</div>
+          <div class="exp-where">Open Financial Technologies</div>
+          <div class="exp-period">December 2022 &mdash; February 2024</div>
+          <ul>
+            <li>Automated reports and alerts using Looker &amp; Metabase</li>
+            <li>Optimized SQL queries, reducing runtime by 90%</li>
+            <li>Migrated large-scale datasets to BigQuery</li>
+            <li>Developed Python scripts for data transformation and automation</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-role">Data Analyst</div>
+          <div class="exp-where">Mojocare</div>
+          <div class="exp-period">September 2021 &mdash; December 2022</div>
+          <ul>
+            <li>Automated daily reports and data extraction tasks</li>
+            <li>Designed event architecture for Mixpanel, Clevertap, and GA4</li>
+            <li>Implemented data pipelines using Hevo</li>
+            <li>Automated data reconciliation, increasing efficiency by 90%</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-role">Data Analyst</div>
+          <div class="exp-where">Eloelo</div>
+          <div class="exp-period">December 2020 &mdash; September 2021</div>
+          <ul>
+            <li>Developed KPIs for mobile application with 500K+ users</li>
+            <li>Built data and reporting infrastructure from scratch</li>
+            <li>Utilized Google Analytics and Facebook Analytics for funnel analysis</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.page -->
 
 <script>
-    // Original showSection function remains the same
-    function showSection(sectionId) {
-        document.querySelectorAll('.content-section').forEach(section => {
-            section.classList.remove('active');
-        });
-        
-        document.getElementById(sectionId).classList.add('active');
-        
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.classList.remove('active');
-            if (link.textContent.toLowerCase() === sectionId) {
-                link.classList.add('active');
-            }
-        });
-    }
+  function show(id) {
+    document.querySelectorAll('.section').forEach(function(s) { s.classList.remove('active'); });
+    document.querySelectorAll('.section-nav-links a').forEach(function(a) { a.classList.remove('active'); });
+    document.getElementById(id).classList.add('active');
+    document.getElementById('nav-' + id).classList.add('active');
+    var si = document.getElementById('search-input');
+    if (si) si.value = '';
+    resetItems();
+  }
 
-    // Add search functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const searchInput = document.querySelector('.search-input');
-        if (searchInput) {
-            searchInput.addEventListener('input', function(e) {
-                const searchTerm = e.target.value.toLowerCase();
-                const blogPosts = document.querySelectorAll('.blog-post');
+  function resetItems() {
+    document.querySelectorAll('#writing-list .item').forEach(function(el) { el.style.display = ''; });
+  }
 
-                blogPosts.forEach(post => {
-                    const title = post.querySelector('h2')?.textContent.toLowerCase() || '';
-                    const description = post.querySelector('.post-description')?.textContent.toLowerCase() || '';
-                    const tag = post.querySelector('.tag')?.textContent.toLowerCase() || '';
-                    const date = post.querySelector('.post-date')?.textContent.toLowerCase() || '';
-
-                    if (title.includes(searchTerm) || 
-                        description.includes(searchTerm) || 
-                        tag.includes(searchTerm) ||
-                        date.includes(searchTerm)) {
-                        post.style.display = 'grid';  // Keep the grid layout
-                    } else {
-                        post.style.display = 'none';
-                    }
-                });
-            });
-        }
+  function filterTag(tag) {
+    show('writing');
+    if (!tag) { resetItems(); return; }
+    var t = tag.toLowerCase();
+    document.querySelectorAll('#writing-list .item').forEach(function(el) {
+      el.style.display = (el.dataset.tags || '').toLowerCase().includes(t) ? '' : 'none';
     });
+  }
 
-    // Original toggleTheme function remains the same
-    function toggleTheme() {
-        const body = document.body;
-        if (body.getAttribute('data-theme') === 'dark') {
-            body.removeAttribute('data-theme');
-        } else {
-            body.setAttribute('data-theme', 'dark');
-        }
-    }
+  function filterYear(year) {
+    show('writing');
+    if (!year) { resetItems(); return; }
+    document.querySelectorAll('#writing-list .item').forEach(function(el) {
+      el.style.display = el.dataset.year === year ? '' : 'none';
+    });
+  }
+
+  function filterSearch(val) {
+    var q = val.toLowerCase();
+    document.querySelectorAll('#writing-list .item').forEach(function(el) {
+      el.style.display = el.textContent.toLowerCase().includes(q) ? '' : 'none';
+    });
+  }
 </script>
+
 </body>
 </html>
