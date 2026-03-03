@@ -3,10 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Suraj Nag</title>
+
+  <!-- SEO CORE -->
+  <title>Suraj Nag - Data Engineer | Airflow, dbt, Redshift, Python</title>
+  <meta name="description" content="Data Engineer at TouchNote (London) specialising in Airflow, dbt, Amazon Redshift, BigQuery, and Python. Writing about data engineering, machine learning, and the craft of working with data." />
+  <meta name="keywords" content="data engineer, Airflow, dbt, Redshift, BigQuery, Snowflake, Python, data pipelines, analytics engineering, Suraj Nag, data engineering London" />
+  <meta name="author" content="Suraj Nag" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://suraj11nag.netlify.app/" />
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type"         content="profile" />
+  <meta property="og:url"          content="https://suraj11nag.netlify.app/" />
+  <meta property="og:site_name"    content="Suraj Nag" />
+  <meta property="og:title"        content="Suraj Nag — Data Engineer" />
+  <meta property="og:description"  content="Data Engineer at TouchNote (London). Airflow · dbt · Redshift · BigQuery · Python. Writing about data engineering and ML." />
+  <meta property="og:image"        content="https://suraj11nag.netlify.app/assets/og-image.png" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"    content="Suraj Nag — Data Engineer, portrait and tech stack" />
+  <meta property="og:locale"       content="en_GB" />
+  <meta property="profile:first_name" content="Suraj" />
+  <meta property="profile:last_name"  content="Nag" />
+  <meta property="profile:username"   content="suraj11nag" />
+
+  <!-- TWITTER / X CARD -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:site"        content="@Suraj11nag" />
+  <meta name="twitter:creator"     content="@Suraj11nag" />
+  <meta name="twitter:title"       content="Suraj Nag — Data Engineer" />
+  <meta name="twitter:description" content="Data Engineer · Airflow · dbt · Redshift · BigQuery · Python. Writing about data engineering and ML." />
+  <meta name="twitter:image"       content="https://suraj11nag.netlify.app/assets/og-image.png" />
+  <meta name="twitter:image:alt"   content="Suraj Nag — Data Engineer, portrait and tech stack" />
+
+  <!-- ASSETS -->
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -31,7 +66,7 @@
       min-height: 100vh;
     }
 
-    /* ── Top bar ── */
+    /* Top bar */
     .topbar {
       padding: 0.5rem 2rem;
       display: flex;
@@ -42,10 +77,10 @@
     .topbar-links a { font-size: 0.82rem; color: var(--link); text-decoration: none; }
     .topbar-links a:hover { text-decoration: underline; }
 
-    /* ── Page wrapper ── */
+    /* Page wrapper */
     .page { max-width: 980px; margin: 0 auto; padding: 0 2rem; }
 
-    /* ── Site name ── */
+    /* Site name */
     .site-header { padding: 3rem 0 1.5rem; }
     .site-name {
       font-family: var(--serif);
@@ -56,7 +91,7 @@
       line-height: 1.1;
     }
 
-    /* ── Nav ── */
+    /* Nav */
     .section-nav { margin: 0.5rem 0 2rem; }
     .section-nav-label {
       font-size: 0.75rem;
@@ -81,7 +116,7 @@
       cursor: default;
     }
 
-    /* ── Two-column layout ── */
+    /* Two-column layout */
     .layout {
       display: grid;
       grid-template-columns: 200px 1fr;
@@ -89,7 +124,7 @@
       padding-bottom: 4rem;
     }
 
-    /* ── Sidebar ── */
+    /* Sidebar */
     .sidebar { padding-top: 0.25rem; }
     .sidebar-section { margin-bottom: 2rem; }
     .sidebar-heading {
@@ -111,7 +146,7 @@
     .sidebar a:hover { text-decoration: underline; }
     .sidebar .count { color: var(--muted); font-size: 0.82rem; }
 
-    /* ── Profile photo ── */
+    /* Profile photo */
     .profile-photo {
       width: 100%;
       aspect-ratio: 1;
@@ -121,7 +156,7 @@
       display: block;
     }
 
-    /* ── Search bar ── */
+    /* Search bar */
     .search-wrap { position: relative; margin-bottom: 2rem; }
     .search-wrap svg {
       position: absolute;
@@ -146,7 +181,7 @@
     .search-input:focus { border-color: #aaa; }
     .search-input::placeholder { color: #aaa; }
 
-    /* ── Item list (writing + projects) ── */
+    /* Item list */
     .item-list { list-style: none; }
     .item {
       margin-bottom: 1.6rem;
@@ -182,14 +217,14 @@
       border-radius: 2px;
     }
 
-    /* ── Bio (home) ── */
+    /* Bio */
     .bio-block { margin-bottom: 2.5rem; }
     .bio-block p { font-size: 0.97rem; color: #333; line-height: 1.7; margin-bottom: 0.9rem; }
     .bio-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem; }
     .bio-links a { font-size: 0.88rem; color: var(--link); text-decoration: none; }
     .bio-links a:hover { text-decoration: underline; }
 
-    /* ── Tech stack ── */
+    /* Tech stack */
     .stack-section { margin-top: 2rem; }
     .stack-label {
       font-size: 0.75rem;
@@ -220,7 +255,7 @@
     }
     .stack-val { color: #333; }
 
-    /* ── Experience ── */
+    /* Experience */
     .exp-item { padding: 1.4rem 0; border-bottom: 1px solid var(--border); }
     .exp-item:first-child { border-top: 1px solid var(--border); }
     .exp-role {
@@ -250,11 +285,11 @@
     }
     .exp-item li::before { content: '–'; position: absolute; left: 0; color: var(--muted); }
 
-    /* ── Section visibility ── */
+    /* Section visibility */
     .section { display: none; }
     .section.active { display: block; }
 
-    /* ── Responsive ── */
+    /* Responsive */
     @media (max-width: 680px) {
       .layout { grid-template-columns: 1fr; gap: 1.5rem; }
       .site-name { font-size: 2.2rem; }
@@ -652,12 +687,260 @@
     });
   }
 
-  function filterSearch(val) {
-    var q = val.toLowerCase();
+  function filterSearch(q) {
+    if (!q) { resetItems(); return; }
+    var t = q.toLowerCase();
     document.querySelectorAll('#writing-list .item').forEach(function(el) {
-      el.style.display = el.textContent.toLowerCase().includes(q) ? '' : 'none';
+      el.style.display = (el.textContent || '').toLowerCase().includes(t) ? '' : 'none';
     });
   }
+</script>
+
+<!-- JSON-LD STRUCTURED DATA -->
+
+<!-- Person schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://suraj11nag.netlify.app/#person",
+  "name": "Suraj Nag",
+  "givenName": "Suraj",
+  "familyName": "Nag",
+  "jobTitle": "Data Engineer",
+  "description": "Data Engineer at TouchNote (London) specialising in Airflow, dbt, Amazon Redshift, BigQuery, and Python. Writes about data engineering, machine learning, and analytics.",
+  "url": "https://suraj11nag.netlify.app",
+  "image": "https://suraj11nag.netlify.app/assets/suraj.png",
+  "email": "suraj11nag@gmail.com",
+  "sameAs": [
+    "https://www.linkedin.com/in/suraj11nag",
+    "https://github.com/Suraj11nag",
+    "https://medium.com/@suraj11nag",
+    "https://twitter.com/Suraj11nag",
+    "https://public.tableau.com/app/profile/suraj.nag3006"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "TouchNote",
+    "url": "https://www.touchnote.com"
+  },
+  "knowsAbout": [
+    "Data Engineering", "Apache Airflow", "dbt", "Amazon Redshift",
+    "Google BigQuery", "Snowflake", "Python", "SQL", "Looker", "LookML",
+    "Machine Learning", "Analytics Engineering", "TensorFlow", "LangChain"
+  ]
+}
+</script>
+
+<!-- ProfilePage schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": "https://suraj11nag.netlify.app/#profilepage",
+  "url": "https://suraj11nag.netlify.app",
+  "name": "Suraj Nag — Data Engineer Portfolio",
+  "description": "Portfolio, writing, and work history of Suraj Nag, Data Engineer at TouchNote (London).",
+  "mainEntity": { "@id": "https://suraj11nag.netlify.app/#person" }
+}
+</script>
+
+<!-- FAQ schema — AEO: eligible for Google featured snippets -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who is Suraj Nag?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Suraj Nag is a Data Engineer at TouchNote in London with 5+ years of experience specialising in Airflow, dbt, Amazon Redshift, BigQuery, and Python."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Suraj Nag's tech stack?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Suraj Nag's core tech stack includes Apache Airflow, dbt, Amazon Redshift, Google BigQuery, Snowflake, PostgreSQL, Python, SQL, Looker, Airbyte, Hevo, Docker, Databricks, and Spark."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does Suraj Nag write about data engineering?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Suraj Nag publishes articles on Medium at medium.com/@suraj11nag covering data engineering, machine learning, career topics, and the craft of working with data."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does Suraj Nag work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Suraj Nag is currently a Data Engineer at TouchNote in London, UK, where he manages Airflow DAGs, builds dbt models, and maintains Redshift-based data marts using Airbyte and Hevo for ingestion."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Article schemas — all 12 published articles -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Articles by Suraj Nag",
+  "author": { "@id": "https://suraj11nag.netlify.app/#person" },
+  "itemListElement": [
+    {
+      "@type": "ListItem", "position": 1,
+      "item": {
+        "@type": "Article",
+        "headline": "The Data Engineering Lifecycle",
+        "description": "The data engineering lifecycle covers ingestion, storage, transformation, and serving — the stages raw data passes through to become useful analytics.",
+        "url": "https://medium.com/@suraj11nag/the-data-engineering-lifecycle-1c1eddeeac2c",
+        "datePublished": "2024-12-21",
+        "author": { "@id": "https://suraj11nag.netlify.app/#person" },
+        "keywords": ["Data Engineering", "Data Lifecycle"]
+      }
+    },
+    {
+      "@type": "ListItem", "position": 2,
+      "item": {
+        "@type": "Article",
+        "headline": "The Fundamentals: What Is Data Modeling?",
+        "description": "Data modeling is the process of structuring data in a warehouse to reflect business logic — covering normalisation, dimensional models, and dbt best practices.",
+        "url": "https://medium.com/@suraj11nag/the-fundamentals-what-is-data-modeling-f140f5a7367c",
+        "datePublished": "2024-09-09",
+        "author": { "@id": "https://suraj11nag.netlify.app/#person" },
+        "keywords": ["Data Engineering", "Data Modeling", "dbt"]
+      }
+    },
+    {
+      "@type": "ListItem", "position": 3,
+      "item": {
+        "@type": "Article",
+        "headline": "Step-by-Step Guide to Building a Data Pipeline with Python and AWS",
+        "description": "A step-by-step guide to building a production data pipeline using Python, S3, Lambda, and Redshift on AWS.",
+        "url": "https://medium.com/@suraj11nag/step-by-step-guide-to-building-a-data-pipeline-with-python-aws-bf0eb8905174",
+        "datePublished": "2024-09-01",
+        "author": { "@id": "https://suraj11nag.netlify.app/#person" },
+        "keywords": ["Data Engineering", "AWS", "Python", "Data Pipeline"]
+      }
+    },
+    {
+      "@type": "ListItem", "position": 4,
+      "item": {
+        "@type": "Article",
+        "headline": "6 Months of Doing — Data Engineering",
+        "description": "An honest retrospective on joining a startup and learning data engineering hands-on — what worked, what didn't, and lessons from the field.",
+        "url": "https://medium.com/@suraj11nag/6-months-of-doing-data-engineering-8ad3030bec79",
+        "datePublished": "2024-08-30",
+        "author": { "@id": "https://suraj11nag.netlify.app/#person" },
+        "keywords": ["Data Engineering", "Career"]
+      }
+    },
+    {
+      "@type": "ListItem", "position": 5,
+      "item": {
+        "@type": "Article",
+        "headline": "Fundamentals of Data Engineering",
+        "description": "Data engineering as an integral part of human civilisation — from ancient Romans to modern pipelines and the core principles that underpin the field.",
+        "url": "https://medium.com/@suraj11nag/fundamental-of-data-engineering-7590545907e5",
+        "datePublished": "2024-05-31",
+        "author": { "@id": "https://suraj11nag.netlify.app/#person" },
+        "keywords": ["Data Engineering", "Fundamentals"]
+      }
+    },
+    {
+      "@type": "ListItem", "position": 6,
+      "item": {
+        "@type": "Article",
+        "headline": "What is Metadata?",
+        "description": "Metadata is data about data — this article explains what metadata means, why it matters in data engineering, and how it powers discoverability and governance.",
+        "url": "https://medium.com/@suraj11nag/what-is-metadata-d55b846ea6dc",
+        "datePublished": "2023-12-29",
+        "author": { "@id": "https://suraj11nag.netlify.app/#person" },
+        "keywords": ["Data Engineering", "Metadata"]
+      }
+    },
+    {
+      "@type": "ListItem", "position": 7,
+      "item": {
+        "@type": "Article",
+        "headline": "12 Months of Learning — Machine Learning",
+        "description": "A candid update on 12 months of self-studying machine learning — what worked, what didn't, and what comes next.",
+        "url": "https://medium.com/@suraj11nag/12-months-of-learning-machine-learning-8cc83798a36d",
+        "datePublished": "2023-07-02",
+        "author": { "@id": "https://suraj11nag.netlify.app/#person" },
+        "keywords": ["Machine Learning", "Learning Path"]
+      }
+    },
+    {
+      "@type": "ListItem", "position": 8,
+      "item": {
+        "@type": "Article",
+        "headline": "Why Data Scientists are Graph-ically Obsessed",
+        "description": "Visualisation is central to data science practice — this article explores why graphs are the primary tool for understanding and communicating with data.",
+        "url": "https://medium.com/@suraj11nag/why-data-scientists-are-graph-ically-obsessed-4fcd73d93935",
+        "datePublished": "2023-02-26",
+        "author": { "@id": "https://suraj11nag.netlify.app/#person" },
+        "keywords": ["Data Science", "Visualisation"]
+      }
+    },
+    {
+      "@type": "ListItem", "position": 9,
+      "item": {
+        "@type": "Article",
+        "headline": "5 Tips for Landing a Data Science Job",
+        "description": "Practical, actionable advice for breaking into data science — covering portfolios, skills prioritisation, and what hiring managers actually look for.",
+        "url": "https://medium.com/@suraj11nag/5-tips-for-landing-a-data-science-job-7ba5ab3c1526",
+        "datePublished": "2023-01-30",
+        "author": { "@id": "https://suraj11nag.netlify.app/#person" },
+        "keywords": ["Data Science", "Career"]
+      }
+    },
+    {
+      "@type": "ListItem", "position": 10,
+      "item": {
+        "@type": "Article",
+        "headline": "Why You Need Maths for Machine Learning",
+        "description": "A guided tour through the mathematical topics that actually matter for ML — linear algebra, calculus, probability — in the right learning order.",
+        "url": "https://medium.com/@suraj11nag/why-you-need-maths-for-machine-learning-11a1a6554f51",
+        "datePublished": "2022-12-26",
+        "author": { "@id": "https://suraj11nag.netlify.app/#person" },
+        "keywords": ["Machine Learning", "Mathematics"]
+      }
+    },
+    {
+      "@type": "ListItem", "position": 11,
+      "item": {
+        "@type": "Article",
+        "headline": "What Should Be Your First Machine Learning Model?",
+        "description": "Guidance for ML beginners on the right first model to build, why the choice matters, and how to set yourself up for a strong learning trajectory.",
+        "url": "https://medium.com/@suraj11nag/what-should-be-your-first-machine-learning-model-e946a8c490f6",
+        "datePublished": "2022-11-28",
+        "author": { "@id": "https://suraj11nag.netlify.app/#person" },
+        "keywords": ["Machine Learning", "Beginners"]
+      }
+    },
+    {
+      "@type": "ListItem", "position": 12,
+      "item": {
+        "@type": "Article",
+        "headline": "8 Ways Machine Learning Changed My Life",
+        "description": "A personal reflection on how studying machine learning transformed career, thinking, and problem-solving — explained with data science.",
+        "url": "https://medium.com/@suraj11nag/8-ways-data-science-changed-my-life-232755d3865e",
+        "datePublished": "2022-10-09",
+        "author": { "@id": "https://suraj11nag.netlify.app/#person" },
+        "keywords": ["Machine Learning", "Personal Growth"]
+      }
+    }
+  ]
+}
 </script>
 
 </body>
